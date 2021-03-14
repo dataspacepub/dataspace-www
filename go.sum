@@ -2,6 +2,8 @@ github.com/bradp/hugo-feather-icons v0.0.0-20201218123216-bacfffa6ca3d h1:IPM6fG
 github.com/bradp/hugo-feather-icons v0.0.0-20201218123216-bacfffa6ca3d/go.mod h1:SmXXFJhLi+umt5zQhwYmW8GlbbAURjqyDP4kKdGSg7A=
 github.com/dataspacepub/spacetime v0.0.0-20210314193838-fe837db4f5e5 h1:gIBBoDVm9QR6T5ri9MmVMDZsweIbeaxbftYK+0y4L9A=
 github.com/dataspacepub/spacetime v0.0.0-20210314193838-fe837db4f5e5/go.mod h1:3dA0WPVXfhVxz1Huxa6nlfyZ+LWz6Sv8QXu2pbhdBHY=
+github.com/dataspacepub/spacetime v0.0.0-20210314194433-7fc240866664 h1:AhL57ekrfoy7dIEKdKGi8vgwFJAVWUSBPFAu8S5atjU=
+github.com/dataspacepub/spacetime v0.0.0-20210314194433-7fc240866664/go.mod h1:VWTHCd4LdsfGQyYrQSymbVgTEJfu2HOke95KkBnuc/g=
 github.com/feathericons/feather v4.28.0+incompatible h1:yj5sEKFTs++4yGYA53kfB02D2iWmpS8HlchmKlESEc4=
 github.com/feathericons/feather v4.28.0+incompatible/go.mod h1:+F8Ba9cmRHWu0pOVoZtid0iwkNJ8hr959HyPwj3hsRg=
 github.com/gohugoio/hugo-mod-bootstrap-scss-v4 v0.0.0-20200902213320-c9cb5e39d8c6 h1:Neo6xDvmZMV41d4kmbjv9ZCYuqzbITl8R/4t6Aeng5A=
