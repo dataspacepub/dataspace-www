@@ -1,0 +1,8 @@
+github.com/bradp/hugo-feather-icons v0.0.0-20201218123216-bacfffa6ca3d h1:IPM6fGOA2uA3GcFOzSQP/39H4ddXcfq/mNUAV36kDkE=
+github.com/bradp/hugo-feather-icons v0.0.0-20201218123216-bacfffa6ca3d/go.mod h1:SmXXFJhLi+umt5zQhwYmW8GlbbAURjqyDP4kKdGSg7A=
+github.com/feathericons/feather v4.28.0+incompatible h1:yj5sEKFTs++4yGYA53kfB02D2iWmpS8HlchmKlESEc4=
+github.com/feathericons/feather v4.28.0+incompatible/go.mod h1:+F8Ba9cmRHWu0pOVoZtid0iwkNJ8hr959HyPwj3hsRg=
+github.com/gohugoio/hugo-mod-bootstrap-scss-v4 v0.0.0-20200902213320-c9cb5e39d8c6 h1:Neo6xDvmZMV41d4kmbjv9ZCYuqzbITl8R/4t6Aeng5A=
+github.com/gohugoio/hugo-mod-bootstrap-scss-v4 v0.0.0-20200902213320-c9cb5e39d8c6/go.mod h1:dAcE2kCmCarbiwNTV4xxlDFShQHiok9kDjw1VoN2J8g=
+github.com/twbs/bootstrap v4.5.2+incompatible h1:QR6UOtm1+LCDK53CzEp8U0NPIYeRUktVgNhq0gaAGP0=
+github.com/twbs/bootstrap v4.5.2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
