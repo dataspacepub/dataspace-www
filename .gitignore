@@ -1,2 +1,7 @@
 # macOS
 .DS_Store
+
+# Hugo
+public
+_vendor
+resources/_gen
