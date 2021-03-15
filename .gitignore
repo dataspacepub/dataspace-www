@@ -4,4 +4,7 @@
 # Hugo
 public
 _vendor
-resources/_gen
+resources
+
+# Node.js
+node_modules
