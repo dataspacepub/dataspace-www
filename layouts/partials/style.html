@@ -1,0 +1,17 @@
+{{ $bsCSS := resources.Get "scss/core-theme.scss" | toCSS | postCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $bsCSS.Permalink | relURL }}" integrity="{{ $bsCSS.Data.Integrity }}">
+
+{{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $syntax.Permalink | relURL }}" integrity="{{ $syntax.Data.Integrity }}">
+
+<style>
+  .article p, .article ul, .article ol, .article blockquote {
+    max-width: 45em;
+  }
+
+  .article p:first-child {
+    font-size: 1.25em;
+    font-weight: 300;
+    max-width: 36em; /* 45 / 1.25 */
+  }
+</style>

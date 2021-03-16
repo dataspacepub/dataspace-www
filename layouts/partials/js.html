@@ -1,0 +1,9 @@
+
+<!-- Core libraries to bundle -->
+{{ $jquery := resources.Get "js/jquery.js" | minify | fingerprint }}
+{{ $popper := resources.Get "js/popper.js" | minify | fingerprint }}
+{{ $bsJS := resources.Get "js/bootstrap.js" | minify | fingerprint }}
+
+<script type="text/javascript" src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $popper.Permalink }}" integrity="{{ $popper.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $bsJS.Permalink }}" integrity="{{ $bsJS.Data.Integrity }}"></script>

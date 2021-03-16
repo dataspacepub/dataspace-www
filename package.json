@@ -1,0 +1,12 @@
+{
+ "comments": {
+  "dependencies": {
+   "bootstrap": "project"
+  },
+  "devDependencies": {}
+ },
+ "dependencies": {
+  "bootstrap": "^4.6.0"
+ },
+ "devDependencies": {}
+}
