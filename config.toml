@@ -1,6 +1,11 @@
+
+# Basic/misc configuation
 baseURL = "https://www.dataspacepublishing.com/"
 languageCode = "en-us"
 title = "Dataspace Publishing"
+googleAnalytics = "UA-xxxxx-1"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 # Site structure
 [taxonomies]
@@ -33,45 +38,86 @@ title = "Dataspace Publishing"
 [build]
   writeStats = true
 
-# Misc config
-googleAnalytics = "UA-xxxxx-1"
-pygmentsCodeFences = true
-pygmentsUseClasses = true
+
+
+# ADDIIONAL OUTPUTS
+# =================
+# Adopted from the following, also licensed under GPLv3:
+# - https://github.com/kaushalmodi/hugo-atom-feed
+# - https://github.com/kaushalmodi/hugo-jf2
+
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+  [mediaTypes."application/jf2post+json"]
+    suffixes = ["json"]
+  [mediaTypes."application/jf2feed+json"]
+    suffixes = ["json"]
+
+[outputs]
+  home                  = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
+  section               = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
+  page                  = [ "HTML", "JF2Post" ]
+  taxonomy              = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
+  taxonomyTerm          = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
+
+[outputFormats.ATOM]
+  name                  = "Atom"
+  mediaType             = "application/atom+xml"
+  baseName              = "atom"
+  isPlainText           = false
+  rel                   = "alternate"
+  isHTML                = false
+  noUgly                = true
+  permalinkable         = false
+
+[outputFormats.JF2Post]
+  name                  = "JF2Post"
+  mediaType             = "application/jf2post+json"
+  baseName              = "jf2post"
+  isPlainText           = true
+
+[outputFormats.JF2Feed]
+  name                  = "JF2Feed"
+  mediaType             = "application/jf2feed+json"
+  baseName              = "jf2feed"
+  isPlainText           = true
 
 
 
 # MODULAR IMPORTS
-# ==============
+# ===============
+
 [module]
 
-# base of virtual union filesystem
-[[module.mounts]]
-  source = "assets/css"
-  target = "assets/css"
-[[module.mounts]]
-  source = "assets/scss"
-  target = "assets/scss"
-[[module.mounts]]
-  source = "assets/js"
-  target = "assets/js"
+  # base of virtual union filesystem
+  [[module.mounts]]
+    source = "assets/css"
+    target = "assets/css"
+  [[module.mounts]]
+    source = "assets/scss"
+    target = "assets/scss"
+  [[module.mounts]]
+    source = "assets/js"
+    target = "assets/js"
 
-# Bootstrap from node
-[[module.mounts]]
-  source = "node_modules/bootstrap/dist/css"
-  target = "assets/css"
-[[module.mounts]]
-  source = "node_modules/bootstrap/scss"
-  target = "assets/scss"
-[[module.mounts]]
-  source = "node_modules/bootstrap/dist/js"
-  target = "assets/js"
+  # Bootstrap from node
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/css"
+    target = "assets/css"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/scss"
+    target = "assets/scss"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/js"
+    target = "assets/js"
 
-# jQuery from node
-[[module.mounts]]
-  source = "node_modules/jquery/dist"
-  target = "assets/js"
+  # jQuery from node
+  [[module.mounts]]
+    source = "node_modules/jquery/dist"
+    target = "assets/js"
 
-# Popper.js from node
-[[module.mounts]]
-  source = "node_modules/popper.js/dist/umd"
-  target = "assets/js"
+  # Popper.js from node
+  [[module.mounts]]
+    source = "node_modules/popper.js/dist/umd"
+    target = "assets/js"

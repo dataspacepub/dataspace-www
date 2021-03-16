@@ -4,6 +4,6 @@
 {{ $popper := resources.Get "js/popper.js" | minify | fingerprint }}
 {{ $bsJS := resources.Get "js/bootstrap.js" | minify | fingerprint }}
 
-<script type="text/javascript" src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
-<script type="text/javascript" src="{{ $popper.Permalink }}" integrity="{{ $popper.Data.Integrity }}"></script>
-<script type="text/javascript" src="{{ $bsJS.Permalink }}" integrity="{{ $bsJS.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $jquery.RelPermalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $popper.RelPermalink }}" integrity="{{ $popper.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $bsJS.RelPermalink }}" integrity="{{ $bsJS.Data.Integrity }}"></script>
