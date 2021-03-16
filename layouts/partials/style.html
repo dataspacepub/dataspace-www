@@ -1,17 +1,27 @@
-{{ $bsCSS := resources.Get "scss/core-theme.scss" | toCSS | postCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $bsCSS.Permalink | relURL }}" integrity="{{ $bsCSS.Data.Integrity }}">
+<!-- core CSS configutation -->
+<!-- ====================== -->
 
-{{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $syntax.Permalink | relURL }}" integrity="{{ $syntax.Data.Integrity }}">
+  <!-- Bootstrap core + site customizations (run through SASS engine) -- >
+  {{ $bootstrap_scss := resources.Get "scss/bootstrap_site.scss" }}
+  {{ $bootstrap := $bootstrap_scss | resources.ExecuteAsTemplate "scss/bootstrap_parsed.scss" . | toCSS (dict "targetPath" "css/bootstrap_compiled.css") }}
 
-<style>
-  .article p, .article ul, .article ol, .article blockquote {
-    max-width: 45em;
-  }
+  <!--syntax highlighting -->
+  {{ $syntax := resources.Get "css/syntax_highlighting.css" }}
 
-  .article p:first-child {
-    font-size: 1.25em;
-    font-weight: 300;
-    max-width: 36em; /* 45 / 1.25 */
-  }
-</style>
+  {{ $style := slice $bootstrap $syntax | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+
+<!-- global CSS tweaks -->
+<!-- ================= -->
+
+  <style>
+    .article p, .article ul, .article ol, .article blockquote {
+      max-width: 45em;
+    }
+
+    .article p:first-child {
+      font-size: 1.25em;
+      font-weight: 300;
+      max-width: 36em; /* 45 / 1.25 */
+    }
+  </style>
