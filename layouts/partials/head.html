@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>{{ .Title }}</title>
+  {{ template "_internal/schema.html" . }}
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}
 
@@ -15,6 +16,5 @@
   {{ end -}}
 
   {{ template "_internal/google_analytics_async.html" . }}
-
 
 </head>
