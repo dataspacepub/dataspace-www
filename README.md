@@ -7,3 +7,5 @@ To make this work:
 2. install Node modules: `npm install` and most likely `npm install postcss` and `npm install autoprefixer`
 
 Once that is done, type `hugo` and it should build everything automagically. Enjoy!
+
+Note: Node on Windows may have a problem resolving dependencies. We're not sure why.
