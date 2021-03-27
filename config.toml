@@ -6,6 +6,10 @@ title = "Dataspace Publishing"
 googleAnalytics = "UA-xxxxx-1"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+summaryLength = 20 # Number of words in the .Summary. This is mainly used on the landing page for the news posts
+
+[markup.goldmark.renderer]
+  unsafe= false # You need this if you want to have html in your .md files. If you want images, for example.
 
 # Site structure
 [taxonomies]
@@ -15,22 +19,31 @@ pygmentsUseClasses = true
   book = "books"
   author = "authors"
 
+[params]
+  Description = "A New Approach to Publishing" #aka the subtitle
+  Brand = "Dataspace Publishing" #A seperate constant brand name you can use! Make sure all posts have a 'title' segment
+
 [menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 100
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 110
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
-    weigt = 100
-  [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 110
-  [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts/"
     weight = 120
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 130
 
 [Social]
   twitter = "DataspacePub"
