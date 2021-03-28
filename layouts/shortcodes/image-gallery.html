@@ -17,7 +17,7 @@
 {{ end }}
 
 <div class="card-deck my-5">
-{{ range (readDir (print "content/" $folder)) }}
+{{ range (readDir $folder) }}
     {{ $isImg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }}
     {{ if $isImg }}
         <div class="card w-100">
