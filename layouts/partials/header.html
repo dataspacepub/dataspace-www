@@ -11,7 +11,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbar">
       <ul class="navbar-nav">
-        {{ $currentPage := (cond (eq .Page.Name "") "/" (print "/" (lower .Page.Name) "/")) }}
+        {{ $currentPage := ((lower .Page.RelPermalink)) }}
         {{ range .Site.Menus.main }}
         {{ if (eq $currentPage .URL)}}
         <li class="nav-item active h4 mr-2">
