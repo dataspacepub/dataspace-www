@@ -1,0 +1,39 @@
+<!-- 
+
+    This Shortcode creates a <div> with an <img /> tag that will always float right.
+
+    This shortcode has the following parameters:
+    * src: string - The source of the image (required)
+    * width: number - Desired width of the image (default is 300)
+    * height: number - Desired height of the image (default is 300)
+    * alt: string - Text for the 'alt' attribute (defaul "Image")
+     * textWidth: string - Width of the text in % (default 100%)
+
+-->
+
+{{ $width := 300 }}
+{{if .Get "width" }}
+    {{ $width = .Get "width" }}
+{{end}}
+
+{{ $height := 300 }}
+{{if .Get "height" }}
+    {{ $height = .Get "width" }}
+{{end}}
+
+{{ $alt := "Image" }}
+{{ if .Get "alt" }}
+ {{ $alt = .Get "alt" }}
+{{ end }}
+
+{{ $textWidth := "100%" }}
+{{ if .Get "textWidth" }}
+ {{ $textWidth = .Get "textWidth" }}
+{{ end }}
+
+<div style="min-height: {{ $height }}px;">
+    <img src="{{.Get `src`}}" class="float-right pl-2" height="{{ $height }}" width="{{ $width }}" alt={{ $alt }}/>
+    <div style="max-width: {{ $textWidth }};"class="p-0">
+        {{ .Inner }}
+    </div>
+</div>
