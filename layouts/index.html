@@ -9,7 +9,7 @@
     {{$recentPosts = .Params.recentPosts }}
   {{end}}
   {{ if (ge $recentPosts 0) }}
-    <div class="container">
+    <div class="container mb-5">
       <h2 class="text-center mb-3">Fresh of the Press</h2>  
       <div class="row">
         {{ range first $recentPosts (where (where .Site.Pages ".Type" "posts") ".IsPage" true)}}
