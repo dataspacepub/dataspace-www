@@ -18,7 +18,7 @@ Our mission is to bring web fiction and similar independent works to your shelf.
 And if you’re a writer yourself, we hope you will join us and share your story with the world.
 {{< /text-image-left >}}
 
-##Our Values and Commitments
+## Our Values and Commitments
 
 {{< image-gallery folder="gallery/" >}}
 
