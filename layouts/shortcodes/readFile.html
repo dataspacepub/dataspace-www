@@ -1,0 +1,26 @@
+<!-- 
+
+    This shortcode includes a given markdown file.
+
+    This shortcode has the following parameters:
+    * file: string- The file you want to read
+    * markdown: bool - Wether or not the file should be run through markdownify (default true)
+
+-->
+
+{{ $file := .Get "file" }}
+{{ $markdown := true }}
+{{ if .Get "markdown" }}
+    {{ $markdown = .Get "markdown" }}
+{{ end }}
+
+{{ if (fileExists $file) }}
+    {{ if (eq $markdown true) }}
+        {{ readFile $file | markdownify }}
+    {{ else }}
+        {{ readFile $file }}
+    {{ end }}
+{{ else }}
+    File not found! Did you spell the name correctly? 
+    Also remember: all files must be relative to the /content or /static folder!
+{{ end }}
