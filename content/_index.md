@@ -5,12 +5,12 @@ recentPosts: 4 #This dictates how many recent posts from the blog section are sh
 
 ## Welcome!
 
-{{< text-image-right src="/home/images/books-bookstore-book-reading-1024x681.jpeg">}}
+{{< text-image-right src="books-bookstore-book-reading-1024x681.jpeg">}}
     {{< readFile file="/home/content-1.md" >}}
 {{< /text-image-right>}}
 
 
 
-{{< text-image-left src="/home/images/pexels-photo-1024x682.jpeg" >}} 
+{{< text-image-left src="pexels-photo-1024x682.jpeg" >}}
     {{< readFile file="/home/content-2.md" >}}
 {{< /text-image-left >}}
