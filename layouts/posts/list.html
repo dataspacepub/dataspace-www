@@ -1,23 +1,32 @@
 {{ define "main" }}
 {{ $dateFormat := default "Jan 2" (index .Site.Params "date_format") }}
 {{ $.Scratch.Set "lastYear" ""}}
+<div class="jumbotron text-center">
+  <h1>{{ .LinkTitle | humanize}}</h1>
+</div>
 <div class="container">
-  <h1 class="text-center">{{ .Type | humanize}}</h1>
-  {{ range .Pages }}
-    {{ $year := .Date.Year }}
-    {{ $lastYear := $.Scratch.Get "lastYear"}}
-    <div class="row mt-2">
-      <div class="d-none d-sm-block col-sm-2 mt-auto offset-sm-2 text-right">
-        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      </div>
-      <div class="col">
-        {{ if ne $year $lastYear }}
-          <p class="text-muted mt-5">{{ $year }}</p>
-          {{ $.Scratch.Set "lastYear" $year }}
-        {{ end }}
-        <a class="text-body" href="{{ .URL | relURL }}">{{ if .Draft }}DRAFT: {{end}}{{ .Title | markdownify }}</a>
+  <div class="row">
+    {{ range .Pages }}
+    <div class="col-sm-3 d-flex align-items-stretch my-2">
+      <div class="card w-100 h-100">
+        {{if .Params.imageSource }}
+          <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
+        {{end}}
+        <div class="card-body">
+            <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
+            <p class="card-text">{{ .Summary | markdownify }}</p>
+          
+        </div>
+        <div class="card-body mt-0 d-flex">
+          <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
+        </div>
+        <div class="card-footer text-muted">
+          Published {{ dateFormat "January 2, 2006" .Date}}
+        </div>
       </div>
     </div>
-  {{ end }}
+      
+    {{ end }}
+  </div>
 </div>
 {{ end }}

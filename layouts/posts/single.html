@@ -1,62 +1,61 @@
 {{ define "main" }}
-<div class="container">
+<div class="container text-center">
   <h1 class="mt-5">{{ .Title | markdownify}}</h1>
-
-  {{ if .Params.Subtitle }}
-    <h2 class="font-weight-light font-italic mb-3">{{ .Params.Subtitle | markdownify }}</h2>
-  {{ end }}
-
-  <p class="text-muted mt-3">
-    <a class="text-muted" href="{{ .Permalink }}">Published {{ .Date.Format "January 2, 2006"  }}</a>
-
-    {{ range .Params.tags }}
-      <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
-    {{ end }}
+  <p class="font-weight-light font-italic" href="{{ .Permalink }}">
+    Published {{ .Date.Format "January 2, 2006"  }} <br/> 
+    Wordcount: {{ .FuzzyWordCount }} <br />
+    Reading time: {{ .ReadingTime }} minute{{if (ge .ReadingTime 2)}}s{{end}}
   </p>
 
-  <article class="article mt-5">
+  <div class="mt-2 text-center">
     {{ .Content }}
-  </article>
-</div>
-
-{{ if or .Next .Prev }}
-  <div class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-center">Read next</h2>
-
-      <div class="row">
-        <div class="col-md-6 text-center">
-          {{ if .Prev }}
-            Previous Post:
-            <a href="{{ .Prev.URL | relURL}}">{{ .Prev.Title | markdownify }}</a>
-          {{ end }}
-        </div>
-        <div class="col-md-6 text-center">
-          {{ if .Next }}
-            Next Post:
-            <a href="{{ .Next.URL | relURL }}">{{ .Next.Title | markdownify }}</a>
-          {{ end }}
-        </div>
-      </div>
-    </div>
   </div>
-{{ end }}
+  <hr class="mb-3">
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-2 text-center mx-1">
+    {{ if .Prev }}
+      <a class="btn btn-secondary" href="{{ .Prev.URL | relURL}}">Previous: {{ .Prev.Title | markdownify }}</a>
+    {{ end }}
+  </div>
+  <div class="col-md-2 text-center text-muted mx-1">
+    <p class="text-muted">
+      {{ range .Params.tags }}
+        <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
+      {{ end }}
+    </p>
+  </div>
+  <div class="col-md-2 text-center mx-1">
+      {{ if .Next }}
+        <a class="btn btn-secondary" href="{{ .Next.URL | relURL }}">Next: {{ .Next.Title | markdownify }}</a>
+      {{ end }}
+  </div>
+</div>
 
 {{ $related := .Site.RegularPages.Related . | first 3 }}
 {{ with $related }}
-<div class="container mt-5">
+<div class="container mt-2">
   <h2 class="text-center">See also</h2>
   <div class="row">
   	{{ range . }}
-      <div class="col-md mb-3">
-        <p class="lead mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></p>
-
-        {{ if .Params.Subtitle }}
-          <p class="lead font-italic mb-0">{{ .Params.Subtitle | markdownify }}</p>
-        {{ end }}
-        <p class="font-weight-light mt-3">{{ .Summary }}</p>
-        <a href="{{ .RelPermalink }}" class="btn btn-primary">Read more</a>
+    <div class="col-sm-6 d-flex align-items-stretch my-2">
+      <div class="card w-100 h-100">
+        {{if .Params.imageSource }}
+          <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
+        {{end}}
+        <div class="card-body">
+            <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
+            <p class="card-text">{{ .Summary | markdownify }}</p>
+          
+        </div>
+        <div class="card-body mt-0 d-flex">
+          <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
+        </div>
+        <div class="card-footer text-muted">
+          Published {{ dateFormat "January 2, 2006" .Date}}
+        </div>
       </div>
+    </div>
     {{ end }}
   </div>
 </div>
