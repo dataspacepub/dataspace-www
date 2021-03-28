@@ -8,10 +8,8 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 summaryLength = 20 # Number of words in the .Summary. This is mainly used on the landing page for the news posts
 
-[markup.goldmark.renderer]
-  unsafe= false # You need this if you want to have html in your .md files. If you want images, for example.
-
 # Site structure
+# Contact and About do not have their own taxonomy as I thought it made no real sense
 [taxonomies]
   category = "categories"
   tag = "tags"
@@ -24,6 +22,7 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
   Brand = "Dataspace Publishing" #A seperate constant brand name you can use! Make sure all posts have a 'title' segment
 
 [menu]
+  # 'name' is the actual name you see displayed in the menu.
   [[menu.main]]
     identifier = "home"
     name = "Home"
