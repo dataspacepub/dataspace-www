@@ -1,41 +1,38 @@
 {{ define "main" }}
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-4">{{ .Site.Title}}</h1>
-    <p class="lead">{{ .Site.Params.Description }}</p>
-    {{ .Content }}
+  <div class="jumbotron">
+    <div class="container">
+      {{ .Content }}
+    </div>
   </div>
-</div>
-
-<div class="container">
-  {{ $recentposts := 5 }}
-  {{ if .Params.recentposts }}
-    {{ $recentposts = .Params.recentposts }}
+  {{$recentPosts := 0}} <!-- Just a precaution in case you ever delete the recentPosts from _index.md-->
+  {{if .Params.recentPosts }}
+    {{$recentPosts = .Params.recentPosts }}
+  {{end}}
+  {{ if (ge $recentPosts 0) }}
+    <div class="container">
+      <h2 class="text-center mb-3">Fresh of the Press</h2>  
+      <div class="row">
+        {{ range first $recentPosts (where (where .Site.Pages ".Type" "posts") ".IsPage" true)}}
+        <div class="col-sm d-flex align-items-stretch mt-2">
+          <div class="card w-100">
+            {{if .Params.imageSource }}
+              <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
+            {{end}}
+            <div class="card-body">
+                <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
+                <p class="card-text">{{ .Summary | markdownify }}</p>
+              
+            </div>
+            <div class="card-body mt-0 d-flex">
+              <a href="#" class="btn btn-primary btn-block align-self-end">Read More...</a>
+            </div>
+            <div class="card-footer text-muted">
+              Published {{ dateFormat "January 2, 2006" .Date}}
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
   {{ end }}
-
-  <h2 class="text-center">Recent posts</h2>
-
-  {{ range first $recentposts (where .Pages "Type" "posts" ) }}
-    <h2 class="mt-5"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h2>
-    {{ if .Params.Subtitle }}
-      <h3 class="font-weight-light font-italic mb-3">{{ .Params.Subtitle | markdownify }}</h2>
-    {{ end }}
-
-    <p class="text-muted mt-3">
-      <a class="text-muted" href="{{ .Permalink }}">Published {{ .Date.Format "January 2, 2006"  }}</a>
-
-      {{ range .Params.tags }}
-        <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
-      {{ end }}
-    </p>
-
-    <article class="article">
-      <p>{{ .Summary }}</p>
-    </article>
-
-    <p class="text-muted">Reading time: about {{ .ReadingTime }} minutes</p>
-    <p><a class="btn btn-primary" href="{{ .URL | relURL }}">Read more...</a></p>
-  {{ end }}
-
-</div>
 {{ end }}
