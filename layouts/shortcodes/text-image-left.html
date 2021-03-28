@@ -34,6 +34,6 @@
 <div style="min-height: {{ $height }}px;">
     <img src="{{.Get `src`}}" class="float-left pr-2 mr-2" height="{{ $height }}" width="{{ $width }}" alt="{{ $alt }}" />
     <div style="max-width: {{ $textWidth }};" class="p-0">
-        {{ .Inner }}
+        {{ .Inner | markdownify }}
     </div>
 </div>
