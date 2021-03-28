@@ -32,8 +32,8 @@
 {{ end }}
 
 <div style="min-height: {{ $height }}px;">
-    <img src="{{.Get `src`}}" class="float-left p-2" height="{{ $height }}" width="{{ $width }}" alt="{{ $alt }}" />
-    <p style="max-width: {{ $textWidth }};" class="p-0">
+    <img src="{{.Get `src`}}" class="float-left pl-2" height="{{ $height }}" width="{{ $width }}" alt="{{ $alt }}" />
+    <div style="max-width: {{ $textWidth }};" class="p-0">
         {{ .Inner }}
-    </p>
+    </div>
 </div>
