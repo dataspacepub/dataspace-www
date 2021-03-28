@@ -1,0 +1,3 @@
+Technology has always brought big changes to the way we read. From the very first printing press, to the present day, each innovation has brought new ways for writers to present their unique stories. Now, we live in the age of web fiction and there is no longer a barrier to publication. Anybody who wants can put their work online for free, for anybody to read. 
+
+_At Dataspace, though, we think there’s a certain charm to having a physical book in your hands, or up on your shelf._
