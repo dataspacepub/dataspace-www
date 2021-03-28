@@ -7,6 +7,7 @@
     * width: number - Desired width of the image (default is 300)
     * height: number - Desired height of the image (default is 300)
     * alt: string - Text for the 'alt' attribute (defaul "Image")
+    * textWidth: string - Width of the text in % (default 100%)
 
 -->
 
@@ -25,9 +26,14 @@
  {{ $alt = .Get "alt" }}
 {{ end }}
 
+{{ $textWidth := "100%" }}
+{{ if .Get "textWidth" }}
+ {{ $textWidth = .Get "textWidth" }}
+{{ end }}
+
 <div style="min-height: {{ $height }}px;">
     <img src="{{.Get `src`}}" class="float-left p-2" height="{{ $height }}" width="{{ $width }}" alt="{{ $alt }}" />
-    <p style="max-width: 70%;" class="p-0">
+    <p style="max-width: {{ $textWidth }};" class="p-0">
         {{ .Inner }}
     </p>
 </div>
