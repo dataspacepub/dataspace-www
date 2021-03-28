@@ -9,7 +9,7 @@
 -->
 
 {{ $folder := .Get "folder" }}
-{{ $baseUrl := .Site.BaseURL }}
+{{ $baseUrl := .Page.RelPermalink }}
 
 {{ $text := true }}
 {{ if .Get "text" }}
@@ -17,7 +17,7 @@
 {{ end }}
 
 <div class="card-deck my-5">
-{{ range (readDir $folder) }}
+{{ range (readDir (print "content/" $folder)) }}
     {{ $isImg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }}
     {{ if $isImg }}
         <div class="card w-100">

@@ -20,7 +20,7 @@ And if you’re a writer yourself, we hope you will join us and share your story
 
 ##Our Values and Commitments
 
-{{< image-gallery folder="gallery" >}}
+{{< image-gallery folder="gallery/" >}}
 
 {{< text-image-right src="pexels-photo-5505718.jpeg" width="400" height="400">}}
 
