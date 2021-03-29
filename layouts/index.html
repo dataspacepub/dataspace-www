@@ -1,8 +1,7 @@
 {{ define "main" }}
-  <div class="jumbotron">
-    <div class="container">
-      {{ .Content }}
-    </div>
+  <img class="jumbotron" src="{{ .Params.jumbo }}" />
+  <div class="container">
+    {{ .Content }}
   </div>
   {{$recentPosts := 0}} <!-- Just a precaution in case you ever delete the recentPosts from _index.md-->
   {{if .Params.recentPosts }}
