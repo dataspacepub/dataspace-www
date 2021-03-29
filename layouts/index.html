@@ -1,5 +1,13 @@
 {{ define "main" }}
-  <img class="jumbotron" src="{{ .Params.jumbo }}" />
+{{ if .Params.jumbo }}
+  <div id="carousel" class="carousel slide mb-5" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="{{ .Params.jumbo }}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+{{ end }}
   <div class="container">
     {{ .Content }}
   </div>
