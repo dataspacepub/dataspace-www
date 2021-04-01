@@ -1,8 +1,11 @@
 <div class="container bg-light">
   <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a href="/" class="navbar-brand w-75">
-      <img src="img/logo-full.svg" height="130" class="d-none d-lg-inline-block align-top" alt="Dataspace Publishing">
-      <img src="img/logo.svg" class="d-inline-block align-top d-lg-none mt-1" alt="Dataspace Publishing">
+      {{ $imageFull := (print .Site.BaseURL "img/logo-full.svg") }}
+      {{ $image := (print .Site.BaseURL "img/logo.svg")}}
+      <img src="{{ $imageFull }}" height="130" class="d-none d-lg-inline-block align-top" alt="Dataspace Publishing">
+      <img src="{{ $image }}" class="d-inline-block align-top d-lg-none mt-1" alt="Dataspace Publishing">
+      
     </a>
     <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
