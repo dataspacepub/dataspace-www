@@ -2,16 +2,11 @@
 <!-- ====================== -->
 
   <!-- Bootstrap core + site customizations (run through SASS engine) -- >
-  {{ $bootstrap_scss := resources.Get "scss/bootstrap_site.scss" }}
-  {{ $bootstrap := $bootstrap_scss | resources.ExecuteAsTemplate "scss/bootstrap_parsed.scss" . | toCSS (dict "targetPath" "css/bootstrap_compiled.css") }}
+  {{ $core_scss := resources.Get "scss/core.scss" }}
+  {{ $core := $core_scss | resources.ExecuteAsTemplate "scss/core_parsed.scss" . | toCSS (dict "targetPath" "css/core_compiled.css") }}
 
-  <!-- syntax highlighting -->
-  {{ $syntax := resources.Get "css/syntax_highlighting.css" }}
 
-  <!-- import Typekit -->
-  {{ $typekit := resources.Get "css/typekit-zot7ogg.css" }}
-
-  {{ $style := slice $bootstrap $syntax $typekit | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
+  {{ $style := $core | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
 <!-- global CSS tweaks -->
