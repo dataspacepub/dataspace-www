@@ -5,10 +5,13 @@
   {{ $bootstrap_scss := resources.Get "scss/bootstrap_site.scss" }}
   {{ $bootstrap := $bootstrap_scss | resources.ExecuteAsTemplate "scss/bootstrap_parsed.scss" . | toCSS (dict "targetPath" "css/bootstrap_compiled.css") }}
 
-  <!--syntax highlighting -->
+  <!-- syntax highlighting -->
   {{ $syntax := resources.Get "css/syntax_highlighting.css" }}
 
-  {{ $style := slice $bootstrap $syntax | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
+  <!-- import Typekit -->
+  {{ $typekit := resources.Get "css/typekit-zot7ogg.css" }}
+
+  {{ $style := slice $bootstrap $syntax $typekit | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
 <!-- global CSS tweaks -->
