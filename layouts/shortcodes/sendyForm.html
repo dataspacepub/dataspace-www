@@ -1,0 +1,31 @@
+<!--
+
+    This shortcode is used to generate forms that post to the Sendy API
+
+    Parameters:
+    - url: string - The base url of the Sendy server (required)
+    - list: string - The list id you want to subscribe the user to
+
+
+-->
+
+{{ $url := .Get "url" }}
+
+<form class="my-3" action="{{ $url }}" method="POST">
+    <div class="row">
+        <div class="col">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="name">
+          </div>
+        <div class="col">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
