@@ -6,11 +6,13 @@ module.exports = {
               './static/js/*.js',
               './assets/js/*.js'
             ],
-          whitelist: [
+            safelist: [
               'h3',
               'h4',
               'ul',
-              'li'
+              'li',
+              'float-left',
+              'float-right'
           ]
       },
       autoprefixer: {},

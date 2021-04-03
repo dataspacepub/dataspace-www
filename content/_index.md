@@ -1,11 +1,10 @@
 ---
 # title: 'Welcome' #What ever you write in here will be the title of the page, i.e. the name you see in the tab.
 recentPosts: 4 #This dictates how many recent posts from the blog section are shown on the landing page!
-jumbo: "img/jumbotron/Dandelion.jpg"
+jumbo: 'img/jumbotron/Dandelion.jpg'
 ---
 
 # Welcome!
-
 
 Technology has always brought big changes to the way we read. From the very first printing press, to the present day, each innovation has brought new ways for writers to present their unique stories. Now, we live in the age of web fiction and there is no longer a barrier to publication. Anybody who wants can put their work online for free, for anybody to read.
 
@@ -20,7 +19,7 @@ And if you’re a writer yourself, we hope you will join us and share your story
 
 {{< image-gallery folder="img/gallery/" >}}
 
-{{< text-image-right src="img/clipart/newspapers.jpeg" alt="A close-up of a newspaper" width="400" height="400">}}
+{{< text-image direction="right" src="img/clipart/newspapers.jpeg" alt="A close-up of a newspaper" width="400" height="400">}}
 
 ## Publishing Through Us
 
@@ -31,4 +30,4 @@ We don’t mind if your story has already been read for free by thousands. We kn
 ### Original fiction
 
 We’re looking for new authors to help launch your career.
-{{< /text-image-right>}}
+{{< /text-image>}}
