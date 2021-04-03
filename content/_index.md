@@ -22,7 +22,7 @@ And if you’re a writer yourself, we hope you will join us and share your story
 
 {{< text-image-right src="img/clipart/newspapers.jpeg" alt="A close-up of a newspaper" width="400" height="400">}}
 
-## Publishing Through Us
+## Publish With Us
 
 ### Web fiction
 
