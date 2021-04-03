@@ -19,8 +19,6 @@ And if you’re a writer yourself, we hope you will join us and share your story
 
 {{< image-gallery folder="img/gallery/" >}}
 
-{{< text-image direction="right" src="img/clipart/newspapers.jpeg" alt="A close-up of a newspaper" width="400" height="400">}}
-
 ## Publish With Us
 
 ### Web fiction
@@ -30,4 +28,3 @@ We don’t mind if your story has already been read for free by thousands. We kn
 ### Original fiction
 
 We’re looking for new authors to help launch your career.
-{{< /text-image>}}
