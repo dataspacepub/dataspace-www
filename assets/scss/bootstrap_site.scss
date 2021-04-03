@@ -7,8 +7,8 @@ $theme-colors: (
   "danger": orange
 );
 
-$enable-rounded: false;
+$enable-rounded: true;
 $enable-shadows: true;
-$enable-gradients: false;
+$enable-gradients: true;
 
 @import 'bootstrap';
