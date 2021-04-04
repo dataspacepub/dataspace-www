@@ -29,9 +29,20 @@
                 <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
                 <p class="card-text">
                   {{ .Summary | markdownify }}<br/>
-                  By: {{ range .Params.author }}
-                  <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace . "." "") | urlize }}">{{ . }}</a>
-                {{ end }}
+                  By:
+                  {{- $len := len .Params.author -}}
+                  {{- range $k, $v := .Params.author -}}
+                    {{- if ge $len 2 -}}
+                      {{- if eq (add $k 1) $len -}}
+                      , and 
+                      {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
+                      ,
+                      {{ end }}
+                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+                    {{- else -}}
+                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+                    {{- end -}}
+                  {{- end -}}
                 </p>
 
             </div>
