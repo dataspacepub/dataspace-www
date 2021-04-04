@@ -30,7 +30,7 @@
 <div class="row d-flex justify-content-center">
   <div class="col-md-2 text-center mx-1">
     {{ if .Prev }}
-      <a class="btn btn-secondary" href="{{ .Prev.URL | relURL}}">Previous: {{ .Prev.Title | markdownify }}</a>
+      <a class="btn btn-secondary" href="{{ .Prev.RelPermalink}}">Previous: {{ .Prev.Title | markdownify }}</a>
     {{ end }}
   </div>
   <div class="col-md-2 text-center text-muted mx-1">
@@ -42,7 +42,7 @@
   </div>
   <div class="col-md-2 text-center mx-1">
       {{ if .Next }}
-        <a class="btn btn-secondary" href="{{ .Next.URL | relURL }}">Next: {{ .Next.Title | markdownify }}</a>
+        <a class="btn btn-secondary" href="{{ .Next.RelPermalink }}">Next: {{ .Next.Title | markdownify }}</a>
       {{ end }}
   </div>
 </div>
@@ -59,12 +59,12 @@
           <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
         {{end}}
         <div class="card-body">
-            <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
+            <h5 class="card-title"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
             <p class="card-text">{{ .Summary | markdownify }}</p>
 
         </div>
         <div class="card-body mt-0 d-flex">
-          <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
+          <a href="{{ .RelPermalink}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
         </div>
         <div class="card-footer text-muted">
           Published {{ dateFormat "January 2, 2006" .Date}}
