@@ -1,7 +1,7 @@
 ---
 # title: 'Welcome' #What ever you write in here will be the title of the page, i.e. the name you see in the tab.
 recentPosts: 4 #This dictates how many recent posts from the blog section are shown on the landing page!
-jumbo: 'img/jumbotron/Dandelion.jpg'
+carousel: ['img/carousel/Dandelion.jpg', 'img/carousel/Watchers_Banner.png']
 ---
 
 # Welcome!
@@ -25,21 +25,21 @@ launch your career.
 Also, for the wolfie: here's what I needed to do in `postcss.config.js` to make it work!
 
 {{< highlight js "linenos=table,hl_lines=3-10,linenostart=18" >}}
-/* disable PurgeCSS during development runs */
+/_ disable PurgeCSS during development runs _/
 module.exports = {
-  plugins: [
-    require('cssnano')({
-      preset: ['default', {
-        discardComments: {
-            removeAll: true,
-        }
-      }]
-    }),
-    require('autoprefixer'),
-    ...process.env.HUGO_ENVIRONMENT === 'production'
-      ? [purgecss]
-      : []
-  ]
+plugins: [
+require('cssnano')({
+preset: ['default', {
+discardComments: {
+removeAll: true,
+}
+}]
+}),
+require('autoprefixer'),
+...process.env.HUGO_ENVIRONMENT === 'production'
+? [purgecss]
+: []
+]
 };
 {{< / highlight >}}
 
