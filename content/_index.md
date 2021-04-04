@@ -22,25 +22,4 @@ full well that just means you have dedicated fans, many of whom will want your
 work on their shelf in physical form. We’re looking for new authors to help
 launch your career.
 
-Also, for the wolfie: here's what I needed to do in `postcss.config.js` to make it work!
-
-{{< highlight js "linenos=table,hl_lines=3-10,linenostart=18" >}}
-/_ disable PurgeCSS during development runs _/
-module.exports = {
-plugins: [
-require('cssnano')({
-preset: ['default', {
-discardComments: {
-removeAll: true,
-}
-}]
-}),
-require('autoprefixer'),
-...process.env.HUGO_ENVIRONMENT === 'production'
-? [purgecss]
-: []
-]
-};
-{{< / highlight >}}
-
 {{< image-gallery folder="img/gallery/" >}}
