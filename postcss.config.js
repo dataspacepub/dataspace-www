@@ -18,12 +18,16 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 /* disable PurgeCSS during development runs */
 module.exports = {
   plugins: [
+    require('cssnano')({
+      preset: ['default', {
+        discardComments: {
+            removeAll: true,
+        }
+      }]
+    }),
     require('autoprefixer'),
     ...process.env.HUGO_ENVIRONMENT === 'production'
       ? [purgecss]
       : []
-  ],
-  cssnano: ['default',
-    {'discardComments': {'removeAll': true}}
   ]
-}
+};
