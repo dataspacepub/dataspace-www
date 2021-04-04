@@ -2,7 +2,7 @@
 <div class="container text-left">
   <h1 class="mt-5 text-center">{{ .Title | markdownify}}</h1>
   <div class="float-md-right card m-1">
-    <p class="font-weight-light p-2 m-1 mb-0" href="{{ .Permalink }}">
+    <p class="font-weight-light p-2 m-1 mb-0">
       <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
 
       by: 
@@ -27,7 +27,7 @@
   </div>
   <hr class="mb-3">
 </div>
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center vw-100">
   <div class="col-md-2 text-center mx-1">
     {{ if .Prev }}
       <a class="btn btn-secondary" href="{{ .Prev.RelPermalink}}">Previous: {{ .Prev.Title | markdownify }}</a>
