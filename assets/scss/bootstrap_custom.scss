@@ -39,6 +39,7 @@ $headings-font-family: 'cronos-pro-display', sans-serif;
 
   &--single {
     @extend .byline;
+    @extend .mb-0;
   }
 }
 
