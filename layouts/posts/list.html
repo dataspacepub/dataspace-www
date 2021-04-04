@@ -5,6 +5,7 @@
   <h1>{{ .LinkTitle | humanize}}</h1>
 </div>
 <div class="container">
+  {{ .Content }}
   <div class="row">
     {{ range .Pages }}
     <div class="col-sm-3 d-flex align-items-stretch my-2">
@@ -15,7 +16,7 @@
         <div class="card-body">
             <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
             <p class="card-text">{{ .Summary | markdownify }}</p>
-          
+
         </div>
         <div class="card-body mt-0 d-flex">
           <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
@@ -25,7 +26,7 @@
         </div>
       </div>
     </div>
-      
+
     {{ end }}
   </div>
 </div>
