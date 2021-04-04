@@ -12,36 +12,16 @@ $enable-shadows: true;
 $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
-$font-size-base: 1.2rem;
-$font-family-base:
-  // Windows
-  'minion-3',
-  // Android
+$font-family-serif:
+  // Peferred TypeKit library
   'minion-3',
   // Basic web fallback
-  'Times New Roman',
-  serif,
-  // Safari for OS X and iOS (San Francisco)
-  -apple-system,
-  // Chrome < 56 for OS X (San Francisco)
-  BlinkMacSystemFont,
+  'Times New Roman', Times, serif,
   // Emoji fonts
-  'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
 
-@import 'bootstrap';
+$font-size-base: 1.2rem;
+$font-family-base: $font-family-serif;
+$headings-font-family: 'cronos-pro-subhead';
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: 'cronos-pro-caption';
-}
+@import "bootstrap";
