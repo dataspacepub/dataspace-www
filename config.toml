@@ -39,7 +39,7 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
     url = "/contact/"
     weight = 120
 
-[Social]
+[social]
   twitter = "DataspacePub"
 
 [build]
