@@ -20,7 +20,7 @@
     <div class="col-sm-3 d-flex align-items-stretch mt-2">
         <div class="card w-100">
         {{if .Params.imageSource }}
-            <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
+            <img src="{{.Params.imageSource}}" class="card-img-top" alt="{{ .Params.imageSource | humanize }}">
         {{end}}
         <div class="card-body">
             <h5 class="card-title mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
@@ -34,9 +34,9 @@
                     {{- else if and (le (add $j 2)) (ne $j 0) $len -}}
                     ,
                     {{ end }}
-                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v2 }}</a>
+                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v2 "." "") | urlize }}">{{ $v2 }}</a>
                 {{- else -}}
-                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
+                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v2 "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
                 {{- end -}}
                 {{- end -}}
             </small>
