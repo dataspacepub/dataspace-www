@@ -23,5 +23,7 @@ module.exports = {
       ? [purgecss]
       : []
   ],
-    cssnano: {preset: 'default'}
+  cssnano: ['default',
+    {'discardComments': {'removeAll': true}}
+  ]
 }
