@@ -8,10 +8,7 @@
   <!-- syntax highlighting -->
   {{ $syntax := resources.Get "css/syntax-highlighting.css" }}
 
-  <!-- import Typekit -->
-  {{ $typekit := resources.Get "css/typekit-zot7ogg.css" }}
-
-  {{ $style := slice $core $syntax $typekit | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
+  {{ $style := slice $core $syntax | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
 <!-- global CSS tweaks -->

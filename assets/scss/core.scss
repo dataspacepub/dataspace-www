@@ -2,13 +2,46 @@ $body-bg: #fefefe;
 $body-color: #111;
 
 $theme-colors: (
-  "primary": #C51F30,
-  "accent": #A7A9AC,
-  "danger": orange
+  'primary': #c51f30,
+  'accent': #a7a9ac,
+  'danger': orange,
 );
 
 $enable-rounded: true;
 $enable-shadows: true;
 $enable-gradients: true;
 
+@import 'typekit-zot7ogg.css';
+
+$font-family-sans-serif:
+  // Safari for OS X and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for OS X (San Francisco)
+  BlinkMacSystemFont,
+  // Windows
+  'minion-3',
+  // Android
+  'minion-3',
+  // Basic web fallback
+  'Helvetica Neue',
+  Arial, sans-serif,
+  // Emoji fonts
+  'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+
 @import 'bootstrap';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: cronos-pro-caption;
+}
