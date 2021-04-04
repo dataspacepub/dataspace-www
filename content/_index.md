@@ -1,6 +1,6 @@
 ---
 # title: 'Welcome' #What ever you write in here will be the title of the page, i.e. the name you see in the tab.
-recentPosts: 4 # This dictates how many recent posts from the blog section are shown on the landing page!
+recentPosts: 4 #This dictates how many recent posts from the blog section are shown on the landing page!
 jumbo: 'img/jumbotron/Dandelion.jpg'
 ---
 
@@ -21,5 +21,26 @@ We don’t mind if your story has already been read for free by thousands. We kn
 full well that just means you have dedicated fans, many of whom will want your
 work on their shelf in physical form. We’re looking for new authors to help
 launch your career.
+
+Also, for the wolfie: here's what I needed to do in `postcss.config.js` to make it work!
+
+{{< highlight js "linenos=table,hl_lines=3-10,linenostart=18" >}}
+/* disable PurgeCSS during development runs */
+module.exports = {
+  plugins: [
+    require('cssnano')({
+      preset: ['default', {
+        discardComments: {
+            removeAll: true,
+        }
+      }]
+    }),
+    require('autoprefixer'),
+    ...process.env.HUGO_ENVIRONMENT === 'production'
+      ? [purgecss]
+      : []
+  ]
+};
+{{< / highlight >}}
 
 {{< image-gallery folder="img/gallery/" >}}
