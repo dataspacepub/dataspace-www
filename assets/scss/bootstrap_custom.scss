@@ -12,7 +12,9 @@ $enable-shadows: true;
 $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
+/* define null here, as it will be overridden later after import */
 $font-family-sans-serif: null;
+
 $font-family-serif:
   // Peferred TypeKit library
   'minion-3',
