@@ -17,7 +17,7 @@
   {{end}}
   {{ if (ge $recentPosts 0) }}
     <div class="container mb-5">
-      <h2 class="text-center mb-3">Fresh of the Press</h2>  
+      <h2 class="text-center mb-3">Fresh of the Press</h2>
       <div class="row">
         {{ range first $recentPosts (where (where .Site.Pages ".Type" "posts") ".IsPage" true)}}
         <div class="col-sm d-flex align-items-stretch mt-2">
@@ -27,8 +27,8 @@
             {{end}}
             <div class="card-body">
                 <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
-                <p class="card-text">{{ .Summary | markdownify }}</p>
-              
+                <p class="card-text">{{ .Summary | markdownify }}<br/>By: {{.Params.author}}</p>
+
             </div>
             <div class="card-body mt-0 d-flex">
               <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>

@@ -4,8 +4,7 @@
   <div class="float-md-right card">
     <p class="font-weight-light p-2 m-1 mb-0" href="{{ .Permalink }}">
       <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
-      Wordcount: {{ .FuzzyWordCount }} <br />
-      Reading time: {{ .ReadingTime }} minute{{if (ge .ReadingTime 2)}}s{{end}}
+      by: {{ .Params.author }}
     </p>
   </div>
 
