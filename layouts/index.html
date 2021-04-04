@@ -27,7 +27,7 @@
             {{end}}
             <div class="card-body">
                 <h5 class="card-title mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
-                <small>
+                <small class="byline">
                   By:
                   {{- $len := len .Params.author -}}
                   {{- range $k, $v := .Params.author -}}
