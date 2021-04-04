@@ -7,3 +7,5 @@ author: ['Gaming G. Wolf', 'G. Wolf', 'K. Lame']
 ---
 
 This is the first paragraph of what I'd like to say.
+
+If you have more than two authors, stuff looks bad :( (Well, if they have long names)

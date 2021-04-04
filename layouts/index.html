@@ -26,9 +26,8 @@
               <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
             {{end}}
             <div class="card-body">
-                <h5 class="card-title"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
-                <p class="card-text">
-                  {{ .Summary | markdownify }}<br/>
+                <h5 class="card-title mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
+                <small>
                   By:
                   {{- $len := len .Params.author -}}
                   {{- range $k, $v := .Params.author -}}
@@ -40,10 +39,14 @@
                       {{ end }}
                       <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
                     {{- else -}}
-                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a>
                     {{- end -}}
                   {{- end -}}
-                </p>
+                </small>
+                <hr class="p-0 m-0 mb-2">
+              <p class="card-text">
+                {{ .Summary | markdownify }}<br/>
+              </p>
 
             </div>
             <div class="card-body mt-0 d-flex">
