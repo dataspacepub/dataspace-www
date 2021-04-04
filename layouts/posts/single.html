@@ -2,8 +2,8 @@
 <div class="container text-left">
   <h1 class="mt-5 text-center">{{ .Title | markdownify}}</h1>
   <div class="float-right card">
-    <p class="font-weight-light font-italic p-3 mb-0" href="{{ .Permalink }}">
-      Published {{ .Date.Format "January 2, 2006"  }} <br/> 
+    <p class="font-weight-light p-2 m-1 mb-0" href="{{ .Permalink }}">
+      <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
       Wordcount: {{ .FuzzyWordCount }} <br />
       Reading time: {{ .ReadingTime }} minute{{if (ge .ReadingTime 2)}}s{{end}}
     </p>
@@ -48,7 +48,7 @@
         <div class="card-body">
             <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
             <p class="card-text">{{ .Summary | markdownify }}</p>
-          
+
         </div>
         <div class="card-body mt-0 d-flex">
           <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
