@@ -1,5 +1,5 @@
 .byline {
-  font-family: cronos-pro-caption, sans-serif;
+  font-family: $captions-font-family;
   &--single {
     @extend .byline;
     @extend .mb-0;
@@ -12,5 +12,14 @@
 
 .figure-caption {
   @extend .figure-caption;
-  font-family: cronos-pro-caption, sans-serif;
+  font-family: $captions-font-family;
+}
+
+.card-footer {
+  @extend .card-footer;
+  font-family: $captions-font-family;
+}
+
+.footer .container {
+  font-family: $font-family-sans-serif;
 }

@@ -12,7 +12,7 @@ $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
 /* define null here, as it will be overridden later after import */
-$font-family-sans-serif: null;
+$font-family-sans-serif: 'cronos-pro', sans-serif;
 $font-family-monospace: 'source-code-pro', monospace;
 $font-family-serif:
   // Peferred TypeKit library
@@ -25,9 +25,9 @@ $font-family-serif:
   // Emoji fonts
   'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol' !default;
-
 $font-size-base: 1.2rem;
 $font-family-base: $font-family-serif;
 $headings-font-family: 'cronos-pro-display', sans-serif;
+$captions-font-family: 'cronos-pro-caption', sans-serif;
 
 @import 'bootstrap';
