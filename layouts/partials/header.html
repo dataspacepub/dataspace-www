@@ -1,29 +1,25 @@
 <div class="container bg-light">
   <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="/" class="navbar-brand">
-      <img src="/Logo.png" height="100" class="d-none d-lg-inline-block align-top " alt="Dataspace Publishing">
-
-      <!-- You could replace this text with a smaller iamge if you wanted too -->
-      <span class="d-lg-none text-dark">{{ .Site.Title }}</span>
+    <a href="/" class="navbar-brand w-50 js-scroll-trigger" href="#page-top">
+      <img src="/img/logo-full.svg" class="img-responsive" alt="Dataspace Publishing">
     </a>
     <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbar">
       <ul class="navbar-nav">
-        {{ $currentPage := lower .Page.RelPermalink }}
-        {{ range .Site.Menus.main }}
-        {{ if or (eq $currentPage .URL) (and (hasPrefix $currentPage .URL) (ge (len .URL) 2))}}
+        {{- $currentPage := lower .Page.RelPermalink -}}
+        {{- range .Site.Menus.main -}}
+        {{- if or (eq $currentPage .URL) (and (hasPrefix $currentPage .URL) (ge (len .URL) 2)) -}}
         <li class="nav-item active h4 mr-2">
           <a class="nav-link" href="{{ .URL | relURL }}" title="{{ .Title }}">{{ .Name }} <span class="sr-only">(current)</span></a>
-        {{ else }}
+        {{- else -}}
         <li class="nav-item h4 mr-2">
           <a class="nav-link" href="{{ .URL | relURL }}" title="{{ .Title }}">{{ .Name }}</a>
-        {{ end }}
+        {{- end -}}
         </li>
-        {{ end }} 
+        {{- end -}}
       </ul>
     </div>
   </nav>
 </div>
-

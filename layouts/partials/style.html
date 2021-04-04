@@ -1,27 +1,46 @@
-<!-- core CSS configutation -->
-<!-- ====================== -->
+<!-- configure SASS processing for production or development -->
+{{- $css_options := dict "outputStyle" "nested" -}}
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- $css_options = dict "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "node_modules/bootstrap") -}}
+{{- end -}}
+<!-- Bootstrap core + site customizations (run through SASS engine) -->
+{{- $bootstrap_options := merge $css_options (dict "targetPath" "css/boostrap_custom.css") -}}
+{{- $bootstrap_custom := resources.Get "scss/bootstrap_custom.scss" -}}
+{{- $bootstrap_extend := resources.Get "scss/bootstrap_extend.scss" -}}
+{{- $bootstrap := slice $bootstrap_custom $bootstrap_extend
+  | resources.Concat "scss/bootstrap_combined.js"
+  | resources.ExecuteAsTemplate "tmp/bootstrap_parsed.scss" .
+  | resources.ToCSS $bootstrap_options -}}
 
-  <!-- Bootstrap core + site customizations (run through SASS engine) -- >
-  {{ $bootstrap_scss := resources.Get "scss/bootstrap_site.scss" }}
-  {{ $bootstrap := $bootstrap_scss | resources.ExecuteAsTemplate "scss/bootstrap_parsed.scss" . | toCSS (dict "targetPath" "css/bootstrap_compiled.css") }}
+<!-- syntax highlighting -->
+{{- $syntax := resources.Get "css/syntax.css" -}}
 
-  <!--syntax highlighting -->
-  {{ $syntax := resources.Get "css/syntax_highlighting.css" }}
+<!-- common production processing for all CSS -->
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- $bootstrap = $bootstrap | postCSS | minify | fingerprint -}}
+  {{- $syntax = $syntax | postCSS | minify | fingerprint -}}
+{{- end -}}
 
-  {{ $style := slice $bootstrap $syntax | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+<!-- output processed CSS -->
+<link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}"
+  {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+    integrity="{{ $bootstrap.Data.Integrity }}"{{- end -}}/>
+<link rel="stylesheet" href="{{ $syntax.RelPermalink }}"
+  {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+    integrity="{{ $syntax.Data.Integrity }}"{{- end -}}/>
+
+<!-- import Typekit module(s) -->
+<link rel="stylesheet" href="https://use.typekit.net/zot7ogg.css"/>
 
 <!-- global CSS tweaks -->
-<!-- ================= -->
+<style>
+  .article p, .article ul, .article ol, .article blockquote {
+    max-width: 45em;
+  }
 
-  <style>
-    .article p, .article ul, .article ol, .article blockquote {
-      max-width: 45em;
-    }
-
-    .article p:first-child {
-      font-size: 1.25em;
-      font-weight: 300;
-      max-width: 36em; /* 45 / 1.25 */
-    }
-  </style>
+  .article p:first-child {
+    font-size: 1.25em;
+    font-weight: 300;
+    max-width: 36em; /* 45 / 1.25 */
+  }
+</style>

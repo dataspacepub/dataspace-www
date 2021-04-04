@@ -1,8 +1,30 @@
 {{ define "main" }}
-  <div class="jumbotron">
-    <div class="container">
-      {{ .Content }}
+{{- if .Params.carousel -}}
+    <div id="carousel" class="carousel slide mb-5" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {{- range $i, $v := .Params.carousel -}}
+        <li data-target="#carousel" data-slide-to="{{ $i }}" {{ if eq $i 0}}class="active"{{ end }}></li>
+        {{- end -}}
+      </ol>
+      <div class="carousel-inner">
+        {{- range $k, $v2 := .Params.carousel -}}
+        <div class="carousel-item {{ if eq $k 0 }}active{{- end -}}">
+            <img src="{{- $v2 -}}" class="d-block w-100" alt="{{- $v2 | humanize -}}">
+        </div>
+        {{- end -}}
+      </div>
+      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
+{{- end -}}
+  <div class="container">
+    {{ .Content }}
   </div>
   {{$recentPosts := 0}} <!-- Just a precaution in case you ever delete the recentPosts from _index.md-->
   {{if .Params.recentPosts }}
@@ -10,29 +32,8 @@
   {{end}}
   {{ if (ge $recentPosts 0) }}
     <div class="container mb-5">
-      <h2 class="text-center mb-3">Fresh of the Press</h2>  
-      <div class="row">
-        {{ range first $recentPosts (where (where .Site.Pages ".Type" "posts") ".IsPage" true)}}
-        <div class="col-sm d-flex align-items-stretch mt-2">
-          <div class="card w-100">
-            {{if .Params.imageSource }}
-              <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
-            {{end}}
-            <div class="card-body">
-                <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
-                <p class="card-text">{{ .Summary | markdownify }}</p>
-              
-            </div>
-            <div class="card-body mt-0 d-flex">
-              <a href="{{ .URL | relURL}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
-            </div>
-            <div class="card-footer text-muted">
-              Published {{ dateFormat "January 2, 2006" .Date}}
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
+      <h2 class="text-center mb-3">Fresh of the Press</h2>
+      {{ partial "blogCards.html" (dict "recentPosts" $recentPosts "toSearch" .Site.Pages)}}
     </div>
   {{ end }}
 {{ end }}

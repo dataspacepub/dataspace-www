@@ -1,0 +1,10 @@
+<!--
+
+  This shortcode creates a simple figure suitable for portraits
+
+-->
+
+<figure class="figure">
+  <img src="{{ .Get `src` }}" class="figure-img img-fluid rounded" alt="{{ .Get `alt` }}">
+  <figcaption class="figure-caption text-right">{{ .Get `caption` }}</figcaption>
+</figure>

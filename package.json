@@ -5,6 +5,8 @@
    "autoprefixer": "project",
    "bootstrap": "project",
    "cssnano": "project",
+   "jquery": "project",
+   "popper.js": "project",
    "postcss-cli": "project",
    "purgecss": "project"
   },
