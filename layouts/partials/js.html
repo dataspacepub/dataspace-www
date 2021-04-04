@@ -1,8 +1,15 @@
 
 <!-- Core libraries to bundle -->
-{{ $jquery := resources.Get "js/jquery.js" | minify | fingerprint }}
-{{ $popper := resources.Get "js/popper.js" | minify | fingerprint }}
-{{ $bsJS := resources.Get "js/bootstrap.js" | minify | fingerprint }}
+{{ $jquery := resources.Get "js/jquery.js" }}
+{{ $popper := resources.Get "js/popper.js" }}
+{{ $bsJS := resources.Get "js/bootstrap.js" }}
+
+<!-- common production processing for all JS -->
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- $jquery = $jquery | minify | fingerprint -}}
+  {{- $popper = $popper | minify | fingerprint -}}
+  {{- $bsJS = $bsJS | minify | fingerprint -}}
+{{- end -}}
 
 <script type="text/javascript" src="{{ $jquery.RelPermalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
 <script type="text/javascript" src="{{ $popper.RelPermalink }}" integrity="{{ $popper.Data.Integrity }}"></script>

@@ -1,7 +1,7 @@
 <!-- core CSS configutation -->
 <!-- ====================== -->
 
-  <!-- configure processing for production or development -->
+  <!-- configure SASS processing for production or development -->
   {{ $css_options := dict "outputStyle" "nested" }}
   {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
     {{- $css_options = dict "outputStyle" "compressed" -}}
@@ -24,8 +24,12 @@
   {{- end -}}
 
   <!-- output processed CSS -->
-  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" integrity="{{ $bootstrap.Data.Integrity }}"/>
-  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" integrity="{{ $syntax.Data.Integrity }}"/>
+  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}"
+    {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+      integrity="{{ $bootstrap.Data.Integrity }}"{{- end -}}/>
+  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}"
+    {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+      integrity="{{ $syntax.Data.Integrity }}"{{- end -}}/>
 
   <!-- import Typekit module(s) -->
   <link rel="stylesheet" href="https://use.typekit.net/zot7ogg.css"/>
