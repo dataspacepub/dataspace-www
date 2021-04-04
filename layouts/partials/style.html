@@ -1,51 +1,45 @@
-<!-- core CSS configutation -->
-<!-- ====================== -->
+<!-- configure SASS processing for production or development -->
+{{- $css_options := dict "outputStyle" "nested" -}}
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- $css_options = dict "outputStyle" "compressed" -}}
+{{- end -}}
 
-  <!-- configure SASS processing for production or development -->
-  {{ $css_options := dict "outputStyle" "nested" }}
+<!-- Bootstrap core + site customizations (run through SASS engine) -->
+{{- $bootstrap_options := merge $css_options (dict "targetPath" "css/boostrap_custom.css") -}}
+{{- $bootstrap_custom := resources.Get "scss/bootstrap_custom.scss" -}}
+{{- $bootstrap := $bootstrap_custom
+  | resources.ExecuteAsTemplate "tmp/bootstrap_parsed.scss" .
+  | toCSS $bootstrap_options -}}
+
+<!-- syntax highlighting -->
+{{- $syntax := resources.Get "css/syntax.css" -}}
+
+<!-- common production processing for all CSS -->
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- $bootstrap = $bootstrap | postCSS | minify | fingerprint -}}
+  {{- $syntax = $syntax | postCSS | minify | fingerprint -}}
+{{- end -}}
+
+<!-- output processed CSS -->
+<link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}"
   {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-    {{- $css_options = dict "outputStyle" "compressed" -}}
-  {{- end -}}
-
-  <!-- Bootstrap core + site customizations (run through SASS engine) -->
-  {{ $bootstrap_options := merge $css_options (dict "targetPath" "css/boostrap_custom.css") }}
-  {{ $bootstrap_custom := resources.Get "scss/bootstrap_custom.scss" }}
-  {{ $bootstrap := $bootstrap_custom
-    | resources.ExecuteAsTemplate "tmp/bootstrap_parsed.scss" .
-    | toCSS $bootstrap_options }}
-
-  <!-- syntax highlighting -->
-  {{ $syntax := resources.Get "css/syntax.css" }}
-
-  <!-- common production processing for all CSS -->
+    integrity="{{ $bootstrap.Data.Integrity }}"{{- end -}}/>
+<link rel="stylesheet" href="{{ $syntax.RelPermalink }}"
   {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-    {{- $bootstrap = $bootstrap | postCSS | minify | fingerprint -}}
-    {{- $syntax = $syntax | postCSS | minify | fingerprint -}}
-  {{- end -}}
+    integrity="{{ $syntax.Data.Integrity }}"{{- end -}}/>
 
-  <!-- output processed CSS -->
-  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}"
-    {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-      integrity="{{ $bootstrap.Data.Integrity }}"{{- end -}}/>
-  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}"
-    {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-      integrity="{{ $syntax.Data.Integrity }}"{{- end -}}/>
-
-  <!-- import Typekit module(s) -->
-  <link rel="stylesheet" href="https://use.typekit.net/zot7ogg.css"/>
-
+<!-- import Typekit module(s) -->
+<link rel="stylesheet" href="https://use.typekit.net/zot7ogg.css"/>
 
 <!-- global CSS tweaks -->
-<!-- ================= -->
+<style>
+  .article p, .article ul, .article ol, .article blockquote {
+    max-width: 45em;
+  }
 
-  <style>
-    .article p, .article ul, .article ol, .article blockquote {
-      max-width: 45em;
-    }
-
-    .article p:first-child {
-      font-size: 1.25em;
-      font-weight: 300;
-      max-width: 36em; /* 45 / 1.25 */
-    }
-  </style>
+  .article p:first-child {
+    font-size: 1.25em;
+    font-weight: 300;
+    max-width: 36em; /* 45 / 1.25 */
+  }
+</style>

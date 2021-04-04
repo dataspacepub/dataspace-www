@@ -1,8 +1,8 @@
 
 <!-- Core libraries to bundle -->
-{{ $jquery := resources.Get "js/jquery.js" }}
-{{ $popper := resources.Get "js/popper.js" }}
-{{ $bsJS := resources.Get "js/bootstrap.js" }}
+{{- $jquery := resources.Get "js/jquery.js" -}}
+{{- $popper := resources.Get "js/popper.js" -}}
+{{- $bsJS := resources.Get "js/bootstrap.js" -}}
 
 <!-- common production processing for all JS -->
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
@@ -11,6 +11,12 @@
   {{- $bsJS = $bsJS | minify | fingerprint -}}
 {{- end -}}
 
-<script type="text/javascript" src="{{ $jquery.RelPermalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
-<script type="text/javascript" src="{{ $popper.RelPermalink }}" integrity="{{ $popper.Data.Integrity }}"></script>
-<script type="text/javascript" src="{{ $bsJS.RelPermalink }}" integrity="{{ $bsJS.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $jquery.RelPermalink }}"
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  integrity="{{ $jquery.Data.Integrity }}"{{- end -}}></script>
+<script type="text/javascript" src="{{ $popper.RelPermalink }}"
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  integrity="{{ $popper.Data.Integrity }}"{{- end -}}></script>
+<script type="text/javascript" src="{{ $bsJS.RelPermalink }}"
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  integrity="{{ $bsJS.Data.Integrity }}"{{- end -}}></script>
