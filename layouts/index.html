@@ -9,7 +9,7 @@
       <div class="carousel-inner">
         {{- range $k, $v2 := .Params.carousel -}}
         <div class="carousel-item {{ if eq $k 0 }}active{{- end -}}">
-            <img src="{{- resources.Get $v2 -}}" class="d-block w-100" alt="{{- $v2 | humanize -}}">
+            <img src="{{- $v2 -}}" class="d-block w-100" alt="{{- $v2 | humanize -}}">
         </div>
         {{- end -}}
       </div>
