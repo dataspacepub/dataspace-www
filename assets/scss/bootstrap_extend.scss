@@ -1,0 +1,14 @@
+.byline {
+  font-family: cronos-pro-caption, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  &--single {
+    @extend .byline;
+    @extend .mb-0;
+  }
+}
+
+.card-body > p.byline {
+  @extend .mb-0;
+}

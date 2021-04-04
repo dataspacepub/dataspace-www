@@ -1,15 +1,16 @@
 <!-- configure SASS processing for production or development -->
 {{- $css_options := dict "outputStyle" "nested" -}}
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-  {{- $css_options = dict "outputStyle" "compressed" -}}
+  {{- $css_options = dict "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "node_modules/bootstrap") -}}
 {{- end -}}
-
 <!-- Bootstrap core + site customizations (run through SASS engine) -->
 {{- $bootstrap_options := merge $css_options (dict "targetPath" "css/boostrap_custom.css") -}}
 {{- $bootstrap_custom := resources.Get "scss/bootstrap_custom.scss" -}}
-{{- $bootstrap := $bootstrap_custom
+{{- $bootstrap_extend := resources.Get "scss/bootstrap_extend.scss" -}}
+{{- $bootstrap := slice $bootstrap_custom $bootstrap_extend
+  | resources.Concat "scss/bootstrap_combined.js"
   | resources.ExecuteAsTemplate "tmp/bootstrap_parsed.scss" .
-  | toCSS $bootstrap_options -}}
+  | resources.ToCSS $bootstrap_options -}}
 
 <!-- syntax highlighting -->
 {{- $syntax := resources.Get "css/syntax.css" -}}
