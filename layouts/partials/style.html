@@ -1,18 +1,24 @@
 <!-- core CSS configutation -->
 <!-- ====================== -->
 
-  <!-- Bootstrap core + site customizations (run through SASS engine) -- >
-  {{ $bootstrap_scss := resources.Get "scss/bootstrap_custom.scss" }}
-  {{ $bootstrap := $bootstrap_scss | resources.ExecuteAsTemplate "scss/bootstrap_parsed.scss" . | toCSS (dict "targetPath" "css/bootstrap_compiled.css") }}
+  <!-- Bootstrap core + site customizations (run through SASS engine) -->
+  {{ $bootstrap_custom := resources.Get "scss/bootstrap_custom.scss" }}
+  {{ $bootstrap := $bootstrap_custom
+    | resources.ExecuteAsTemplate "tmp/bootstrap_parsed.scss" .
+    | toCSS (dict "targetPath" "css/bootstrap.css")
+    | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}"
+    integrity="{{ $bootstrap.Data.Integrity }}"/>
 
   <!-- syntax highlighting -->
-  {{ $syntax := resources.Get "css/syntax-highlighting.css" }}
+  {{ $syntax := resources.Get "css/syntax.css"
+    | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}"
+    integrity="{{ $syntax.Data.Integrity }}"/>
 
-  <!-- import Typekit -->
-  {{ $typekit := resources.Get "css/typekit-zot7ogg.css" }}
+  <!-- import Typekit module(s) -->
+  <link rel="stylesheet" href="https://use.typekit.net/zot7ogg.css"/>
 
-  {{ $style := slice $bootstrap $syntax $typekit | resources.Concat "css/core.css" | postCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
 <!-- global CSS tweaks -->
 <!-- ================= -->
