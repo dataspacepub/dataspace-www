@@ -39,7 +39,7 @@
                       {{ end }}
                       <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
                     {{- else -}}
-                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a>
+                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
                     {{- end -}}
                   {{- end -}}
                 </small>
