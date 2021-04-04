@@ -11,18 +11,17 @@ $enable-rounded: true;
 $enable-shadows: true;
 $enable-gradients: true;
 
-$font-family-sans-serif:
-  // Safari for OS X and iOS (San Francisco)
-  -apple-system,
-  // Chrome < 56 for OS X (San Francisco)
-  BlinkMacSystemFont,
+$font-family-base:
   // Windows
   'minion-3',
   // Android
   'minion-3',
   // Basic web fallback
-  'Helvetica Neue',
-  Arial, sans-serif,
+  'Times New Roman', serif,
+  // Safari for OS X and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for OS X (San Francisco)
+  BlinkMacSystemFont,
   // Emoji fonts
   'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol' !default;
