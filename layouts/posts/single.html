@@ -2,24 +2,25 @@
 <div class="container text-left">
   <h1 class="mt-5 text-center">{{ .Title | markdownify}}</h1>
   <div class="float-md-right card m-1">
-    <p class="font-weight-light p-2 m-1 mb-0">
-      <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
-
-      by: 
-      {{- $len := len .Params.author -}}
-      {{- range $k, $v := .Params.author -}}
-        {{- if ge $len 2 -}}
-          {{- if eq (add $k 1) $len -}}
-          , and 
-          {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
-          ,
-          {{ end }}
-          <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
-        {{- else -}}
-        <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+    <div class="card-body"> 
+      <p class="byline">
+        <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
+        By: 
+        {{- $len := len .Params.author -}}
+        {{- range $k, $v := .Params.author -}}
+          {{- if ge $len 2 -}}
+            {{- if eq (add $k 1) $len -}}
+            , and 
+            {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
+            ,
+            {{ end }}
+            <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+          {{- else -}}
+          <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+          {{- end -}}
         {{- end -}}
-      {{- end -}}
-    </p>
+      </p>
+    </div>
   </div>
 
   <div class="mt-2">
