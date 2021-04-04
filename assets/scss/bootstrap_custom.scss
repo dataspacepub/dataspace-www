@@ -45,3 +45,9 @@ h6,
 .h6 {
   font-family: 'cronos-pro-caption';
 }
+
+.byline {
+  padding: ($spacer * 0.5) !important;
+  margin: ($spacer * 0.25) !important;
+  margin-bottom: 0 !important;
+}
