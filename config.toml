@@ -89,7 +89,7 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
   mediaType             = "application/jf2feed+json"
   baseName              = "jf2feed"
   isPlainText           = true
-
+  permalinkable         = false
 
 
 # MODULAR IMPORTS
