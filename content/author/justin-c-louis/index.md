@@ -5,7 +5,7 @@ draft: false
 name: "Justin C. Louis"
 ---
 
-{{< figure src="portrait-jcl.jpg" caption="Justin C. Louis, Author" >}}
+{{< portrait src="portrait-jcl.jpg" caption="Justin C. Louis, Author" alt="portrait of the author" >}}
 
 ## About the author
 
