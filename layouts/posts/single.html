@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container text-left">
   <h1 class="mt-5 text-center">{{ .Title | markdownify}}</h1>
-  <div class="float-right card">
+  <div class="float-md-right card p-1">
     <p class="font-weight-light p-2 m-1 mb-0" href="{{ .Permalink }}">
       <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
       Wordcount: {{ .FuzzyWordCount }} <br />
