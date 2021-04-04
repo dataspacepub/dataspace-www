@@ -27,7 +27,12 @@
             {{end}}
             <div class="card-body">
                 <h5 class="card-title"><a class="text-body" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a></h5>
-                <p class="card-text">{{ .Summary | markdownify }}<br/>By: {{.Params.author}}</p>
+                <p class="card-text">
+                  {{ .Summary | markdownify }}<br/>
+                  By: {{ range .Params.author }}
+                  <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace . "." "") | urlize }}">{{ . }}</a>
+                {{ end }}
+                </p>
 
             </div>
             <div class="card-body mt-0 d-flex">
