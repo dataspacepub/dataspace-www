@@ -18,47 +18,7 @@
   {{ if (ge $recentPosts 0) }}
     <div class="container mb-5">
       <h2 class="text-center mb-3">Fresh of the Press</h2>
-      <div class="row">
-        {{ range first $recentPosts (where (where .Site.Pages ".Type" "posts") ".IsPage" true)}}
-        <div class="col-sm d-flex align-items-stretch mt-2">
-          <div class="card w-100">
-            {{if .Params.imageSource }}
-              <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
-            {{end}}
-            <div class="card-body">
-                <h5 class="card-title mb-0"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
-                <small class="byline">
-                  By:
-                  {{- $len := len .Params.author -}}
-                  {{- range $k, $v := .Params.author -}}
-                    {{- if ge $len 2 -}}
-                      {{- if eq (add $k 1) $len -}}
-                      , and 
-                      {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
-                      ,
-                      {{ end }}
-                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
-                    {{- else -}}
-                      <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
-                    {{- end -}}
-                  {{- end -}}
-                </small>
-                <hr class="p-0 m-0 mb-2">
-              <p class="card-text">
-                {{ .Summary | markdownify }}<br/>
-              </p>
-
-            </div>
-            <div class="card-body mt-0 d-flex">
-              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-block align-self-end">Read More...</a>
-            </div>
-            <div class="card-footer text-muted">
-              Published {{ dateFormat "January 2, 2006" .Date}}
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
+      {{ partial "blogCards.html" (dict "recentPosts" $recentPosts "toSearch" .Site.Pages)}}
     </div>
   {{ end }}
 {{ end }}

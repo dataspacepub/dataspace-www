@@ -49,32 +49,10 @@
 </div>
 
 {{ $related := .Site.RegularPages.Related . | first 3 }}
-{{ with $related }}
 <div class="container mt-2">
   <h2 class="text-center">See also</h2>
   <div class="row">
-  	{{ range . }}
-    <div class="col-sm-6 d-flex align-items-stretch my-2">
-      <div class="card w-100 h-100">
-        {{if .Params.imageSource }}
-          <img src="{{.Params.imageSource}}" class="card-img-top" alt="...">
-        {{end}}
-        <div class="card-body">
-            <h5 class="card-title"><a class="text-body" href="{{ .RelPermalink }}">{{ .Title | markdownify}}</a></h5>
-            <p class="card-text">{{ .Summary | markdownify }}</p>
-
-        </div>
-        <div class="card-body mt-0 d-flex">
-          <a href="{{ .RelPermalink}}" class="btn btn-primary btn-block align-self-end">Read More...</a>
-        </div>
-        <div class="card-footer text-muted">
-          Published {{ dateFormat "January 2, 2006" .Date}}
-        </div>
-      </div>
-    </div>
-    {{ end }}
+    {{ partial "blogCards.html" (dict "toSearch" $related) }}
   </div>
 </div>
-{{ end }}
-
 {{ end }}
