@@ -1,7 +1,7 @@
 ---
 # title: 'Welcome' #What ever you write in here will be the title of the page, i.e. the name you see in the tab.
 recentPosts: 4 #This dictates how many recent posts from the blog section are shown on the landing page!
-carousel: ['img/carousel/Dandelion.jpg', 'img/carousel/Watchers_Banner.png']
+carousel: ['img/carousel/Dandelion.jpg']
 ---
 
 # Welcome!
