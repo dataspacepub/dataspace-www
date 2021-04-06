@@ -74,4 +74,8 @@ generic. We commission original artwork, so that your novel will stand out as a
 collectible on the shelf.
 {{< / card/body >}}
 
+{{< card/body >}}
+This is a test of an imageless card body. This is *only* a test!
+{{< / card/body >}}
+
 {{< / card/deck >}}
