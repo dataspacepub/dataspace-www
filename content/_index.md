@@ -1,6 +1,6 @@
 ---
-# title: 'Welcome' #What ever you write in here will be the title of the page, i.e. the name you see in the tab.
-recentPosts: 4 #This dictates how many recent posts from the blog section are shown on the landing page!
+title: "Welcome!"
+recentPosts: 4
 carousel:
   - "img/carousel/dandelion-jumbotron.jpg"
 ---
@@ -54,28 +54,28 @@ module.exports = {
 };
 {{< / highlight >}}
 
-{{< card/deck >}}
+{{< cards >}}
 
-{{< card/body src="1.jpeg" alt="text" >}}
+{{< card/img src="1.jpeg" alt="text" >}}
 We take pride in the quality of our products, and work with industry leading
 print companies to deliver environmentally conscious books that look and feel
 fantastic to own.
-{{< / card/body >}}
+{{< / card/img >}}
 
-{{< card/body src="2.jpeg" alt="text" >}}
+{{< card/img src="2.jpeg" alt="text" >}}
 We don’t just take your text and copy-paste it. We take care with typsetting,
 fonts and kerning, ensuring that every book published through us is a joy to
 read.
-{{< / card/body >}}
+{{< / card/img >}}
 
-{{< card/body src="3.jpeg" alt="text" >}}
+{{< card/img src="3.jpeg" alt="text" >}}
 We know that readers do judge books by their covers, which is why ours are never
 generic. We commission original artwork, so that your novel will stand out as a
 collectible on the shelf.
-{{< / card/body >}}
+{{< / card/img >}}
 
-{{< card/body >}}
+{{< card >}}
 This is a test of an imageless card body. This is *only* a test!
-{{< / card/body >}}
+{{< / card >}}
 
-{{< / card/deck >}}
+{{< / cards >}}
