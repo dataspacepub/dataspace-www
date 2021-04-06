@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
     Partial to genrate a card-deck of blog posts
 
@@ -30,13 +30,13 @@
                 {{- range $j, $v2 := $v.Params.author -}}
                 {{- if ge $len 2 -}}
                     {{- if eq (add $j 1) $len -}}
-                    , and 
+                    , and
                     {{- else if and (le (add $j 2)) (ne $j 0) $len -}}
                     ,
                     {{ end }}
-                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v2 "." "") | urlize }}">{{ $v2 }}</a>
+                    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}">{{ $v2 }}</a>
                 {{- else -}}
-                    <a class="text-muted" href="{{ "/author/" | relURL }}{{ (replace $v2 "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
+                    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
                 {{- end -}}
                 {{- end -}}
             </small>

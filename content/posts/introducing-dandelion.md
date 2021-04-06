@@ -11,4 +11,4 @@ series: ['Newhome Rangers']
 
 ![Cover of Dandelion](/img/covers/Dandelion.png)
 
-About the novel *"Dandelion"* by [Philip R. Johnson]({{< ref "/author/philip-r-johnson" >}}) and [Justin C. Louis]({{< ref "/author/justin-c-louis" >}}).
+About the novel *"Dandelion"* by [Philip R. Johnson]({{< ref "/authors/philip-r-johnson" >}}) and [Justin C. Louis]({{< ref "/authors/justin-c-louis" >}}).
