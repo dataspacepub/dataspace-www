@@ -1,8 +1,5 @@
 <div class="card w-100">
-
-  {{- if .IsNamedParams -}}
   <img src="{{ .Get "src" }}" class="card-img-top" alt="{{ .Get "alt" }}"/>
-  {{- end -}}
   <div class="card-body">
     {{ .Inner | markdownify }}
   </div>
