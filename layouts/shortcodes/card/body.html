@@ -1,0 +1,8 @@
+<div class="card w-100">
+  {{- $src := .Get "src" -}}
+  {{- $alt := .Get "alt" -}}
+    <img src="{{$src}}" class="card-img-top" alt="{{$alt}}"/>
+    <div class="card-body">
+      {{ .Inner | markdownify }}
+    </div>
+</div>

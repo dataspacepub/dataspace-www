@@ -30,7 +30,7 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
     weight = 100
   [[menu.main]]
     identifier = "posts"
-    name = "Blog"
+    name = "News & Updates"
     url = "/posts/"
     weight = 110
   [[menu.main]]

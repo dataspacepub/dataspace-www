@@ -2,11 +2,18 @@
 title: "Introducing Dandelion"
 date: 2021-04-06T00:43:09+01:00
 draft: true
-author: ['Philip R. Johnson']
-tag: ['introduction', 'book', 'dandelion']
+author:
+  - "Philip R. Johnson"
+  - "Justin C. Louis"
+tag:
+  - "introduction"
+  - "young-adult"
+  - "scifi"
+  - "exploration"
 category:
-book: Dandelion
-series: ['Newhome Rangers']
+  - "Announcements"
+series:
+  - "Newhome Rangers"
 ---
 
 ![Cover of Dandelion](/img/covers/Dandelion.png)

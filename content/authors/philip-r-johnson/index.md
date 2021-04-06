@@ -1,8 +1,7 @@
 ---
 title: "Philip R. Johnson"
 date: 2021-04-06T00:16:46+01:00
-draft: false
-name: "Philip R. Johnson"
+draft: true
 ---
 
 *Co-owner and manager of Dataspace Publishing*

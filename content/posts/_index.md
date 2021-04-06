@@ -1,5 +1,5 @@
 ---
-title: 'Blog'
+title: 'News and Updates'
 ---
 
-This is a blog page!
+PLACEHOLDER
