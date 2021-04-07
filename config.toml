@@ -23,6 +23,7 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
   series = "series"
   book = "books"
   author = "authors"
+  
 # Critically important! Generates statistics for SASS/CSS tree-shaking
 [build]
   writeStats = true

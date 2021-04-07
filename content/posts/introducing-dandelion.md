@@ -5,15 +5,13 @@ draft: true
 author:
   - "Philip R. Johnson"
   - "Justin C. Louis"
-tag:
+tags:
   - "introduction"
   - "young-adult"
   - "scifi"
   - "exploration"
-category:
-  - "Announcements"
-series:
-  - "Newhome Rangers"
+categories: "Announcements"
+series: "Newhome Rangers"
 ---
 
 ![Cover of Dandelion](/img/covers/Dandelion.png)
