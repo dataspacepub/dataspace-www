@@ -1,8 +1,7 @@
 ---
 title: "Welcome!"
 recentPosts: 4
-carousel:
-  - "img/carousel/dandelion-jumbotron.jpg"
+carousel: "img/carousel/dandelion-jumbotron.jpg"
 ---
 
 # Welcome!

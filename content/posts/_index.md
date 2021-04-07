@@ -1,5 +1,6 @@
 ---
-title: 'News and Updates'
+title: 'News & Updates'
 ---
 
-PLACEHOLDER
+Here, you can find all our latest news, posts, updates, content, and so forth,
+all conveniently gathered into a single place. We hope you find it useful!

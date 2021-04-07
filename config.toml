@@ -29,15 +29,53 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
     url = "/"
     weight = 100
   [[menu.main]]
+
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects"
+    weight = 110
+  [[menu.main]]
+    identifier = "authors"
+    name = "Our Authors"
+    url = "/authors"
+    parent = "projects"
+    weight = 111
+  [[menu.main]]
+    identifier = "books"
+    name = "Our Books"
+    url = "/books"
+    parent = "projects"
+    weight = 112
+  [[menu.main]]
+    identifier = "series"
+    name = "Book Series"
+    url = "/series"
+    parent = "projects"
+    weight = 113
+  [[menu.main]]
+
     identifier = "posts"
     name = "News & Updates"
-    url = "/posts/"
-    weight = 110
+    url = "/posts"
+    weight = 120
+  [[menu.main]]
+    identifier = "by-category"
+    name = "By Category"
+    url = "/cateories"
+    parent = "posts"
+    weight = 121
+  [[menu.main]]
+    identifier = "by-tag"
+    name = "By Tag"
+    url = "/tags"
+    parent = "posts"
+    weight = 122
+
   [[menu.main]]
     identifier = "contact"
     name = "Contact"
     url = "/contact/"
-    weight = 120
+    weight = 130
 
 [social]
   twitter = "DataspacePub"
