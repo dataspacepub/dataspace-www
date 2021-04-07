@@ -72,10 +72,15 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
     weight = 122
 
   [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    url = "/contact/"
+    identifier = "about"
+    name = "About Us"
+    url = "/about"
     weight = 130
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact Us"
+    url = "/contact"
+    weight = 131
 
 [social]
   twitter = "DataspacePub"
