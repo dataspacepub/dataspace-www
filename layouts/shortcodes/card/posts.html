@@ -1,0 +1,48 @@
+<!--
+
+    This shortcode generates a set number of cards referencing the most recent posts
+
+    Parameters:
+    * amount: int - Number of cards the shortcode should generate
+
+ -->
+
+{{- $amount := .Get "amount" -}}
+{{- $toSearch := first $amount (where (where .Site.Pages ".Type" "posts") ".IsPage" true) -}}
+{{- range $i, $v := $toSearch -}}
+    <div class="card w-100">
+    {{- if .Params.imageSource -}}
+        <img src="{{- .Params.imageSource -}}" class="card-img-top" alt="{{- .Params.imageSource | humanize -}}">
+    {{- end -}}
+    <div class="card-body">
+        <h5 class="card-title mb-0"><a class="text-body" href="{{- .RelPermalink -}}">{{ .Title | markdownify}}</a></h5>
+        <small class="byline">
+            By:
+            {{- $len := len $v.Params.author -}}
+            {{- range $j, $v2 := $v.Params.author -}}
+            {{- if ge $len 2 -}}
+                {{- if eq (add $j 1) $len -}}
+                , and
+                {{- else if and (le (add $j 2)) (ne $j 0) $len -}}
+                ,
+                {{ end }}
+                <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}">{{ $v2 }}</a>
+            {{- else -}}
+                <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
+            {{- end -}}
+            {{- end -}}
+        </small>
+        <hr class="p-0 m-0 mb-2 mt-1">
+        <p class="card-text">
+        {{ .Summary | markdownify }}<br/>
+        </p>
+
+    </div>
+    <div class="card-body mt-0 d-flex">
+        <a href="{{ .RelPermalink }}" class="btn btn-primary btn-block align-self-end">Read More...</a>
+    </div>
+    <div class="card-footer text-muted">
+        Published {{ dateFormat "January 2, 2006" .Date}}
+    </div>
+    </div>
+{{ end }}

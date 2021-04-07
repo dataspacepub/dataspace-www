@@ -1,5 +1,47 @@
+<!--
+
+  This shortcode generates a single Bootstrap Card
+
+  Parameters:
+  * src: string - The relative link to an image you want to display at the top of the card
+  * alt: string - Alt text for the provided image
+  * title: string - The title of the card
+  * authors: string - If the post is supposed to have a byline. Comma seperated
+
+-->
 <div class="card w-100">
+  {{- if isset .Params "src" -}}
+    {{- $image := .Get "src"  -}}
+    {{- $alt := $image | humanize -}}
+    {{- if isset .Params "alt" -}}
+      {{- $alt = .Get "alt" -}}
+    {{- end -}}
+    <img src="{{ $image }}" class="card-img-top" alt="{{ $alt }}"/>
+  {{- end -}}
   <div class="card-body">
+      {{- if isset .Params "title" -}}
+        <h5 class="card-title mb-0">{{ .Get "title" | markdownify}}</h5>
+      {{- end -}}
+      {{- if isset .Params "authors" -}}
+      {{ $authors := split (.Get "authors") "," }}
+        <small class="authors">
+          By:
+          {{- $len := len $authors -}}
+          {{- range $k, $v := $authors -}}
+          {{- if ge $len 2 -}}
+              {{- if eq (add $k 1) $len -}}
+              , and
+              {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
+              ,
+              {{ end }}
+              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+          {{- else -}}
+              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+          {{- end -}}
+          {{- end -}}
+        </small>
+        <hr class="p-0 m-0 mb-2 mt-1">
+    {{- end -}}
     {{ .Inner | markdownify }}
   </div>
 </div>

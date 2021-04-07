@@ -1,7 +1,6 @@
 ---
-title: "Welcome!"
-recentPosts: 4
-carousel: "img/carousel/dandelion-jumbotron.jpg"
+title: 'Welcome!'
+carousel: 'img/carousel/dandelion-jumbotron.jpg'
 ---
 
 # Welcome!
@@ -55,26 +54,38 @@ module.exports = {
 
 {{< cards >}}
 
-{{< card/img src="1.jpeg" alt="text" >}}
+{{< card src="1.jpeg" alt="text" >}}
 We take pride in the quality of our products, and work with industry leading
 print companies to deliver environmentally conscious books that look and feel
 fantastic to own.
-{{< / card/img >}}
+{{< /card >}}
 
-{{< card/img src="2.jpeg" alt="text" >}}
+{{< card src="2.jpeg" alt="text" >}}
 We don’t just take your text and copy-paste it. We take care with typsetting,
 fonts and kerning, ensuring that every book published through us is a joy to
 read.
-{{< / card/img >}}
+{{< /card >}}
 
-{{< card/img src="3.jpeg" alt="text" >}}
+{{< card src="3.jpeg" alt="text" >}}
 We know that readers do judge books by their covers, which is why ours are never
 generic. We commission original artwork, so that your novel will stand out as a
 collectible on the shelf.
-{{< / card/img >}}
+{{< /card >}}
 
 {{< card >}}
-This is a test of an imageless card body. This is *only* a test!
+This is a test of an imageless card body. This is _only_ a test!
 {{< / card >}}
+
+{{< / cards >}}
+
+## Fresh of the Press
+
+{{< cards >}}
+
+{{< card authors="Justin C. Louis" title="It can have a title!">}}
+This is just a test of the card shortcode! And that's the card post shortcode ->
+{{< /card >}}
+
+{{< card/posts amount="2" >}}
 
 {{< / cards >}}

@@ -5,14 +5,4 @@
   <div class="container">
     {{ .Content }}
   </div>
-  {{$recentPosts := 0}} <!-- Just a precaution in case you ever delete the recentPosts from _index.md-->
-  {{if .Params.recentPosts }}
-    {{$recentPosts = .Params.recentPosts }}
-  {{end}}
-  {{ if (ge $recentPosts 0) }}
-    <div class="container mb-5">
-      <h2 class="text-center mb-3">Fresh of the Press</h2>
-      {{ partial "blogCards.html" (dict "recentPosts" $recentPosts "toSearch" .Site.Pages)}}
-    </div>
-  {{ end }}
 {{ end }}
