@@ -1,7 +1,3 @@
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" href="/img/icon/32x32.png" sizes="32x32">
 <link rel="icon" href="/img/icon/192x192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/img/icon/180x180.png">
@@ -12,7 +8,6 @@
   <title>{{ .Site.Params.Brand }}</title>
 {{- end -}}
 
-{{- $css_options := dict "outputStyle" "nested" -}}
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
   {{- template "_internal/schema.html" . -}}
   {{- template "_internal/opengraph.html" . -}}
@@ -26,6 +21,6 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s"/>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{- end -}}
 
-{{ template "_internal/google_analytics_async.html" . }}
-
-</head>
+{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
+  {{- template "_internal/google_analytics_async.html" . -}}
+{{- end -}}
