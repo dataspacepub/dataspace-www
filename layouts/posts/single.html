@@ -47,12 +47,4 @@
       {{ end }}
   </div>
 </div>
-
-{{ $related := .Site.RegularPages.Related . | first 3 }}
-<div class="container mt-2">
-  <h2 class="text-center">See also</h2>
-  <div class="row">
-    {{ partial "blogCards.html" (dict "toSearch" $related) }}
-  </div>
-</div>
 {{ end }}

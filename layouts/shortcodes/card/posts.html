@@ -8,7 +8,12 @@
  -->
 
 {{- $amount := .Get "amount" -}}
-{{- $toSearch := first $amount (where (where .Site.Pages ".Type" "posts") ".IsPage" true) -}}
+{{- $toSearch := "" -}}
+{{- if eq $amount "all" -}}
+    {{- $toSearch = where (where .Site.Pages ".Type" "posts") ".IsPage" true -}}
+{{- else -}}
+    {{- $toSearch = first $amount (where (where .Site.Pages ".Type" "posts") ".IsPage" true) -}}
+{{- end -}}
 {{- range $i, $v := $toSearch -}}
     <div class="card w-100">
     {{- if .Params.imageSource -}}
