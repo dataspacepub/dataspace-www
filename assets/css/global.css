@@ -1,0 +1,21 @@
+/* Global CSS tweaks
+   These tweaks will come after all other CSS, and can be used to override any
+   property in our site's CSS. With great power comes great responsibility.
+
+   USAGE: for static, traditional CSS that does not require SASS/SCSS processing
+   or which is not appropriate elsewhere.
+
+   NOTE: TypeKit in particular comes even after this global CSS, to ensure all
+   fonts get overridden and imported properly. Also Adobe requires it be hosted
+   from their CDN, so we can't integrate it into the site's pipeline. Oh well.
+*/
+
+.article p, .article ul, .article ol, .article blockquote {
+  max-width: 45em;
+}
+
+.article p:first-child {
+  font-size: 1.25em;
+  font-weight: 300;
+  max-width: 36em; /* 45 / 1.25 */
+}

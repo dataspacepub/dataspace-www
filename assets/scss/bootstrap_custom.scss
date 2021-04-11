@@ -11,9 +11,30 @@ $enable-shadows: true;
 $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
-/* define null here, as it will be overridden later after import */
-$font-family-sans-serif: 'cronos-pro', sans-serif;
-$font-family-monospace: 'source-code-pro', monospace;
+/* All font families need complete specifications here because SASS does not
+   merge list variables. Sensible I suppose, but oh well. --ctwelve */
+$font-family-sans-serif:
+  // Preferred TypeKit library
+  'cronos-pro',
+  // graceful modern system font fallback
+  -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue",
+  // Basic web fallback
+  Arial, "Noto Sans", "Liberation Sans",
+  sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$font-family-monospace:
+  // Preferred TypeKit library
+  'source-code-pro',
+  // graceful modern system font fallback
+  SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace,
+  // Emoji fonts
+  'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
 $font-family-serif:
   // Peferred TypeKit library
   'minion-3',
@@ -24,10 +45,17 @@ $font-family-serif:
   Times, serif,
   // Emoji fonts
   'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+$headings-font-family:
+  'cronos-pro-display',
+  $font-family-sans-serif;
+
+$captions-font-family:
+  'cronos-pro-caption',
+  $font-family-sans-serif;
+
 $font-size-base: 1.2rem;
 $font-family-base: $font-family-serif;
-$headings-font-family: 'cronos-pro-display', sans-serif;
-$captions-font-family: 'cronos-pro-caption', sans-serif;
 
 @import 'bootstrap';

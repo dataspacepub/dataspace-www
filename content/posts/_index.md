@@ -1,5 +1,5 @@
 ---
-title: 'News & Updates'
+title: "News & Updates"
 ---
 
 Here, you can find all our latest news, posts, updates, content, and so forth,

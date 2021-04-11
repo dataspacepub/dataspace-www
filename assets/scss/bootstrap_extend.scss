@@ -1,3 +1,12 @@
+:root {
+  // Custom variable values only support SassScript inside `#{}`.
+  @extend :root;
+
+  // Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --font-family-serif: #{inspect($font-family-serif)};
+}
+
 .byline {
   font-family: $captions-font-family;
   &--single {
@@ -22,4 +31,23 @@
 
 .footer .container {
   font-family: $font-family-sans-serif;
+}
+
+/* For some inane reason, Bootstrap deliberately removes any useful styling on
+   the <blockquote> element, and then hides it in a class with identical labels.
+   I suppose this is for some situation where you want a <blockquote> that does
+   not impart any visual style whatsoever, but that seems extra turbo-dumb to
+   me. Since we use Markdown, I've simply imported the relevant styles and
+   tweaked them very slightly. --ctwelve
+*/
+blockquote {
+  @extend .blockquote;
+  margin-left: $spacer * 2;
+  margin-right: $spacer * 2;
+  text-align: justify;
+}
+
+blockquote footer {
+  @extend .blockquote-footer;
+  text-align: right;
 }

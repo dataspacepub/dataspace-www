@@ -6,18 +6,18 @@
       <p class="byline">
         <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
         By:
-        {{- $len := len .Params.author -}}
-        {{- range $k, $v := .Params.author -}}
-          {{- if ge $len 2 -}}
-            {{- if eq (add $k 1) $len -}}
+        {{- $authors := .Params.author -}}
+        {{- range $j, $v := $authors -}}
+        {{- if ge (len $authors) 2 -}}
+            {{- if eq (add $j 1) len $authors -}}
             , and
-            {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
+            {{- else if and (le (add $j 2)) (ne $j 0) len $authors -}}
             ,
             {{ end }}
             <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
-          {{- else -}}
-          <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
-          {{- end -}}
+        {{- else -}}
+            <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+        {{- end -}}
         {{- end -}}
       </p>
     </div>
