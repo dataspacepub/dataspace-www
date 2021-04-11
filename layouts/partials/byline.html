@@ -3,11 +3,7 @@
   This partial generates a nicely formatted author byline
 
 -->
-{{- $authors := slice -}}
-
-{{- range $k, $v := .Params.authors -}}
-  {{- $authors = $authors | append $v -}}
-{{- end -}}
+{{- $authors := .Params.authors -}}
 
 {{- range $j, $v := $authors -}}
   {{- if ge (len $authors) 2 -}}
