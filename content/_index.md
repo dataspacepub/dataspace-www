@@ -54,19 +54,19 @@ module.exports = {
 
 {{< cards >}}
 
-{{< card src="1.jpeg" alt="text" >}}
+{{< card src="img/1.jpeg" alt="text" >}}
 We take pride in the quality of our products, and work with industry leading
 print companies to deliver environmentally conscious books that look and feel
 fantastic to own.
 {{< /card >}}
 
-{{< card src="2.jpeg" alt="text" >}}
+{{< card src="img/2.jpeg" alt="text" >}}
 We don’t just take your text and copy-paste it. We take care with typsetting,
 fonts and kerning, ensuring that every book published through us is a joy to
 read.
 {{< /card >}}
 
-{{< card src="3.jpeg" alt="text" >}}
+{{< card src="img/3.jpeg" alt="text" >}}
 We know that readers do judge books by their covers, which is why ours are never
 generic. We commission original artwork, so that your novel will stand out as a
 collectible on the shelf.
