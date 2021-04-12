@@ -4,6 +4,7 @@
   <div class="float-md-right card m-1">
     <div class="card-body">
       <p class="byline">
+        <!-- TODO: https://www.netlify.com/blog/2018/07/24/hugo-tips-how-to-create-author-pages/ -->
         <em>Published {{ .Date.Format "January 2, 2006" }} </em><br/>
         By:
         {{- $authors := .Params.author -}}

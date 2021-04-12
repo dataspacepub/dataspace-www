@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container">
+  <h1 class="text-center">{{ .Params.name }}</h1>
+  <!-- TODO: add concitional for the case where the photo is not specified-->
+  {{ $original := .Page.Resources.GetMatch .Params.photo }}
+  {{ .Scratch.Set "portrait" ($original.Resize "x400") }}
+  {{ $image := .Scratch.Get "portrait" }}
+  <figure class="figure float-right">
+    <img class="figure-img img-fluid rounded" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
+    <figcaption class="figure-caption text-right">
+      <small>
+        <strong>{{ .Params.name }}</strong><br/>
+        {{ .Params.description | markdownify }}
+      </small>
+    </figcaption>
+  </figure>
+  {{ .Content }}
+  <h2>Follow {{ .Params.name }}</h2>
+  <ul>
+    <!-- TODO: logic for case where no Twitter is attached, also add same block for other social media platforms -->
+    {{ range .Params.twitter }}
+      <li><a href="https://twitter.com/{{ substr . 1 }}">{{ substr . 1 }}</a> on Twitter</li>
+    {{ end }}
+  </ul>
+  {{ range .Data.Pages }}
+    <div class="row mt-2">
+      <div class="d-none d-sm-block col-sm-2 mt-auto offset-sm-2 text-right">
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      </div>
+      <div class="col">
+        <a class="text-body" href="{{ .Permalink }}">{{ if .Draft }}DRAFT: {{end}}{{ .Title | markdownify }}</a>
+      </div>
+    </div>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,11 +1,11 @@
 ---
-title: "Justin C. Louis"
-draft: false
+name: "Justin C. Louis"
+photo: portrait-jcl.jpg
+description: "co-owner and manager of Dataspace Publishing"
+twitter:
+  - "@JCLouisAuthor"
+  - "@DataspacePub"
 ---
-
-{{< portrait "portrait-jcl.jpg" Resize "x400" >}}
-  <strong>Justin C. Louis,</strong> co-owner and manager of Dataspace publishing
-{{< /portrait >}}
 
 A native of the upper Midwest, Justin has always had a passion for writing,
 technology, and the secrets of human systems. He is a veteran of the U.S. Air

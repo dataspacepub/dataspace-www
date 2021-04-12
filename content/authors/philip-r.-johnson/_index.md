@@ -1,11 +1,11 @@
 ---
-title: "Philip R. Johnson"
-draft: false
+name: "Philip R. Johnson"
+photo: portrait-prj.jpg
+description: "co-owner and manager of Dataspace Publishing"
+twitter:
+  - "@HamboneHFY"
+  - "@DataspacePub"
 ---
-
-{{< portrait portrait-prj.jpg Resize "x400" >}}
-  <strong>Philip R. Johnson,</strong> co-owner and manager of Dataspace publishing
-{{< /portrait >}}
 
 Born and raised in rural Wales and blessed with a bedroom full of books, Phil
 has written and roleplayed from a young age. Under the pen name Hambone, he

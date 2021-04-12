@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="container">
+  <h1 class="text-center">{{ .Params.title }}</h1>
+  {{ .Content }}
+  <ul>
+  {{ range .Data.Pages }}
+    <li><a class="text-body" href="{{ .Permalink }}">{{ .Params.name | markdownify }}</a></li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
