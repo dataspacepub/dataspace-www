@@ -82,7 +82,7 @@ This is a test of an imageless card body. This is _only_ a test!
 
 {{< cards >}}
 
-{{< card authors="Justin C. Louis" title="It can have a title!">}}
+{{< card authors="Justin C. Louis" title="It can have a title!" >}}
 This is just a test of the card shortcode! And that's the card post shortcode ->
 {{< /card >}}
 

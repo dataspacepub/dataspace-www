@@ -1,10 +1,8 @@
 {{ define "main" }}
 <div class="container">
-  <h1 class="text-center">
-    {{ .Name | humanize }}
-  </h1>
-
   {{ if eq .Kind "taxonomyTerm" }}
+    {{ .Content }}
+    <h1>{{ .Name }}</h1>
     {{ range $.Site.Taxonomies.tags.ByCount }}
       <div class="row mt-2">
         <div class="d-none d-sm-block col-sm-2 mt-auto offset-sm-2 text-right">
@@ -16,6 +14,8 @@
       </div>
     {{ end }}
   {{ else }}
+    <h1>{{ .Name }}</h1>
+    {{ .Content }}
     {{ $dateFormat := default "Jan 2" (index .Site.Params "date_format") }}
     {{ $.Scratch.Set "lastYear" ""}}
     {{ range .Pages }}

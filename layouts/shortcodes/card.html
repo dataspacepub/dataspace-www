@@ -34,9 +34,9 @@
               {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
               ,
               {{ end }}
-              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}">{{ $v }}</a>
           {{- else -}}
-              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
           {{- end -}}
           {{- end -}}
         </small>

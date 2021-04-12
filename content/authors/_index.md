@@ -1,6 +1,6 @@
 ---
-title: "Our partner authors"
-date: 2021-04-06T00:11:32+01:00
+title: "Our Authors"
 draft: false
 ---
-Some random message
+
+Here you will find a list of all authors, including the founders.

@@ -1,8 +1,8 @@
 ---
-title: "Introducing Newhome Rangers"
+title: "Introducing the Newhome Rangers"
 date: 2021-04-06T00:43:16+01:00
 draft: true
-author:
+authors:
   - "Philip R. Johnson"
   - "Justin C. Louis"
 tags:
@@ -10,7 +10,11 @@ tags:
   - "young-adult"
   - "scifi"
   - "exploration"
-category: "Announcements"
-books: "Dandelion"
-series: "Newhome Rangers"
+series:
+  - "Newhome Rangers"
+categories:
+  - "Announcements"
+  - "Press Releases"
 ---
+
+Hello!

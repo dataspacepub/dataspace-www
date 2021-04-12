@@ -1,8 +1,7 @@
 {{ define "main" }}
 <div class="container">
-  <h1 class="text-center">
-    {{ .Type | humanize }}
-  </h1>
+  <h1 class="text-center">{{ .Title | markdownify }}</h1>
+  {{ .Content }}
   {{ range .Pages }}
     <div class="row mt-2">
       <div class="d-none d-sm-block col-sm-2 mt-auto offset-sm-2 text-right">

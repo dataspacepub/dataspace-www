@@ -8,7 +8,12 @@
  -->
 
 {{- $amount := .Get "amount" -}}
-{{- $toSearch := first $amount (where (where .Site.Pages ".Type" "posts") ".IsPage" true) -}}
+{{- $toSearch := "" -}}
+{{- if eq $amount "all" -}}
+    {{- $toSearch = where (where .Site.Pages ".Type" "posts") ".IsPage" true -}}
+{{- else -}}
+    {{- $toSearch = first $amount (where (where .Site.Pages ".Type" "posts") ".IsPage" true) -}}
+{{- end -}}
 {{- range $i, $v := $toSearch -}}
     <div class="card w-100">
     {{- if .Params.imageSource -}}
@@ -18,19 +23,7 @@
         <h5 class="card-title mb-0"><a class="text-body" href="{{- .RelPermalink -}}">{{ .Title | markdownify}}</a></h5>
         <small class="byline">
             By:
-            {{- $len := len $v.Params.author -}}
-            {{- range $j, $v2 := $v.Params.author -}}
-            {{- if ge $len 2 -}}
-                {{- if eq (add $j 1) $len -}}
-                , and
-                {{- else if and (le (add $j 2)) (ne $j 0) $len -}}
-                ,
-                {{ end }}
-                <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}">{{ $v2 }}</a>
-            {{- else -}}
-                <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v2 "." "") | urlize }}"> {{ $v2 }}</a><!-- That space before the double brackets is needed! -->
-            {{- end -}}
-            {{- end -}}
+            {{ partial "byline.html" . }}
         </small>
         <hr class="p-0 m-0 mb-2 mt-1">
         <p class="card-text">
