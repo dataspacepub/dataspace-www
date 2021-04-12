@@ -24,23 +24,14 @@
       {{- end -}}
       <!-- TODO: https://markheath.net/post/css-comma-separated-list -->
       <!-- probably this is tricky because instead of isset we should use range .Params.author -->
-      {{- if isset .Params "authors" -}}
-      {{ $authors := split (.Get "authors") "," }}
+      {{- with .Params -}}
         <small class="authors">
           By:
-          {{- $len := len $authors -}}
-          {{- range $k, $v := $authors -}}
-          {{- if ge $len 2 -}}
-              {{- if eq (add $k 1) $len -}}
-              , and
-              {{- else if and (le (add $k 2)) (ne $k 0) $len -}}
-              ,
-              {{ end }}
-              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}">{{ $v }}</a>
-          {{- else -}}
-              <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+          <ul class="comma-list">
+          {{- range $k, $v := (slice .authors) -}}
+          <li><a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a></li>
           {{- end -}}
-          {{- end -}}
+          </ul>
         </small>
         <hr class="p-0 m-0 mb-2 mt-1">
     {{- end -}}
