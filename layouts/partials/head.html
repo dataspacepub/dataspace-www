@@ -1,6 +1,6 @@
 <!-- generate page title in a slightly more intelligent manner -->
 {{- if .Title -}}
-  <title>{{ .Title }} - {{ .Site.Params.Brand }}</title>
+  <title>{{ .Site.Params.Brand }}—{{ .Title }}</title> <!-- the dash is a Unicode em dash, just FYI -->
 {{- else -}}
   <title>{{ .Site.Params.Brand }}</title>
 {{- end -}}
@@ -10,11 +10,10 @@
 {{ partial "js.html" . }}
 
 <!-- advanced metadata -->
+
+<!-- appease the Google Monster -->
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-  {{- template "_internal/schema.html" . -}}
-  {{- template "_internal/opengraph.html" . -}}
-  {{- template "_internal/twitter_cards.html" . -}}
-  {{- template "_internal/google_analytics_async.html" . -}}
+  {{- template "_internal/google_analytics.html" . -}}
 {{- end -}}
 
 <!-- Apple-specific icon data -->

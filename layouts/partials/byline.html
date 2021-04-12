@@ -3,7 +3,7 @@
   This partial generates a nicely formatted author byline
 
 -->
-{{- $authors := .Params.authors -}}
+{{- $authors := .Params.author -}}
 
 {{- range $j, $v := $authors -}}
   {{- if ge (len $authors) 2 -}}
@@ -12,8 +12,8 @@
       {{- else if and (le (add $j 2)) (ne $j 0) (len $authors) -}}
         ,
     {{ end }}
-    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}">{{ $v }}</a>
+    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}">{{ $v }}</a>
       {{- else -}}
-    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ (replace $v "." "") | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
+    <a class="text-muted" href="{{ "/authors/" | relURL }}{{ $v | urlize }}"> {{ $v }}</a><!-- That space before the double brackets is needed! -->
   {{- end -}}
 {{- end -}}

@@ -4,7 +4,30 @@
 
 -->
 
-<figure class="figure">
-  <img src="{{ .Get `src` }}" class="figure-img img-fluid rounded" alt="{{ .Get `alt` }}">
-  <figcaption class="figure-caption text-right">{{ .Get `caption` }}</figcaption>
+{{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
+{{ $command := .Get 1 }}
+{{ $options := .Get 2 }}
+
+{{ if eq $command "Fit"}}
+  {{ .Scratch.Set "image" ($original.Fit $options) }}
+{{ else if eq $command "Resize"}}
+  {{ .Scratch.Set "image" ($original.Resize $options) }}
+{{ else if eq $command "Fill"}}
+  {{ .Scratch.Set "image" ($original.Fill $options) }}
+{{ else }}
+  {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+{{ end }}
+
+{{ $image := .Scratch.Get "image" }}
+<figure class="figure float-right">
+  <img class="figure-img img-fluid rounded" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
+  <figcaption class="figure-caption text-right">
+    <small>
+      {{ with .Inner }}
+        {{ . }}
+      {{ else }}
+        .{{ $command }} "{{ $options }}"
+      {{ end }}
+    </small>
+  </figcaption>
 </figure>

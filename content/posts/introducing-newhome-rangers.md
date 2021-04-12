@@ -10,10 +10,11 @@ tags:
   - "young-adult"
   - "scifi"
   - "exploration"
+series:
+  - "Newhome Rangers"
 categories:
   - "Announcements"
   - "Press Releases"
-series: "Newhome Rangers"
 ---
 
 Hello!

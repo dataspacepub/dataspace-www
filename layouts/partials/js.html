@@ -1,16 +1,17 @@
-
 <!-- Core libraries to bundle -->
 {{- $jquery := resources.Get "js/jquery.js" -}}
 {{- $popper := resources.Get "js/popper.js" -}}
 {{- $bsJS := resources.Get "js/bootstrap.js" -}}
 
 <!-- common production processing for all JS -->
+{{ $jsopts := dict "params" (dict "sourceMap" "inline") }}
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-  {{- $jquery = $jquery | minify | fingerprint -}}
-  {{- $popper = $popper | minify | fingerprint -}}
-  {{- $bsJS = $bsJS | minify | fingerprint -}}
+  {{- $jquery = $jquery | js.Build ($jsopts) | minify | fingerprint -}}
+  {{- $popper = $popper | js.Build ($jsopts) | minify | fingerprint -}}
+  {{- $bsJS = $bsJS | js.Build ($jsopts) | minify | fingerprint -}}
 {{- end -}}
 
+<!-- embed all processed JS -->
 <script type="text/javascript" src="{{ $jquery.RelPermalink }}"
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
   integrity="{{ $jquery.Data.Integrity }}"{{- end -}}></script>

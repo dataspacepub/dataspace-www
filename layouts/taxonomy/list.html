@@ -1,9 +1,6 @@
 {{ define "main" }}
 <div class="container">
-  <h1 class="text-center">
-    {{ .Name | humanize }}
-  </h1>
-
+  <h1 class="text-center">{{ .Name }}</h1>
   {{ if eq .Kind "taxonomyTerm" }}
     {{ range $.Site.Taxonomies.tags.ByCount }}
       <div class="row mt-2">

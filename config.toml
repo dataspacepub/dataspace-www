@@ -20,10 +20,10 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
 [taxonomies]
   category = "categories"
   tag = "tags"
-  series = "series"
   book = "books"
+  series = "series"
   author = "authors"
-  
+
 # Critically important! Generates statistics for SASS/CSS tree-shaking
 [build]
   writeStats = true
@@ -90,50 +90,6 @@ summaryLength = 20 # Number of words in the .Summary. This is mainly used on the
     parent = "about"
     weight = 131
 
-
-# ADDIIONAL OUTPUTS
-# =================
-# Adopted from the following, also licensed under GPLv3:
-# - https://github.com/kaushalmodi/hugo-atom-feed
-# - https://github.com/kaushalmodi/hugo-jf2
-
-[mediaTypes]
-  [mediaTypes."application/atom+xml"]
-    suffixes = ["xml"]
-  [mediaTypes."application/jf2post+json"]
-    suffixes = ["json"]
-  [mediaTypes."application/jf2feed+json"]
-    suffixes = ["json"]
-
-[outputs]
-  home                  = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
-  section               = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
-  page                  = [ "HTML", "JF2Post" ]
-  taxonomy              = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
-  taxonomyTerm          = [ "HTML", "RSS", "ATOM", "JF2Feed" ]
-
-[outputFormats.ATOM]
-  name                  = "Atom"
-  mediaType             = "application/atom+xml"
-  baseName              = "atom"
-  isPlainText           = false
-  rel                   = "alternate"
-  isHTML                = false
-  noUgly                = true
-  permalinkable         = false
-
-[outputFormats.JF2Post]
-  name                  = "JF2Post"
-  mediaType             = "application/jf2post+json"
-  baseName              = "jf2post"
-  isPlainText           = true
-
-[outputFormats.JF2Feed]
-  name                  = "JF2Feed"
-  mediaType             = "application/jf2feed+json"
-  baseName              = "jf2feed"
-  isPlainText           = true
-  permalinkable         = false
 
 
 # MODULAR IMPORTS

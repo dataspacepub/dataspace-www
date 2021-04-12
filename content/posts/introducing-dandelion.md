@@ -1,7 +1,7 @@
 ---
 title: "Introducing Dandelion"
 date: 2021-04-06T00:43:09+01:00
-draft: true
+draft: false
 authors:
   - "Philip R. Johnson"
   - "Justin C. Louis"
@@ -10,11 +10,12 @@ tags:
   - "young-adult"
   - "scifi"
   - "exploration"
+series:
+  - "Newhome Rangers"
 categories:
   - "Announcements"
   - "Press Releases"
 book: "Dandelion"
-series: "Newhome Rangers"
 ---
 
 > Amber Houston was born light-years from Earth, aboard the enormous colony
@@ -31,7 +32,6 @@ themselves amid revelations that will change Humankind's destiny forever.
 > Meanwhile, aboard the ship, secrets that were buried over three hundred years ago
 finally come to light...
 
-
-***"Dandelion"*** by [Philip R. Johnson]({{< ref "/authors/philip-r-johnson" >}})
-and [Justin C. Louis]({{< ref "/authors/justin-c-louis" >}}) is their debut
+***"Dandelion"*** by [Philip R. Johnson]({{< ref "/authors/philip-r.-johnson" >}})
+and [Justin C. Louis]({{< ref "/authors/justin-c.-louis" >}}) is their debut
 novel, and the first novel in the Newhome Rangers series.

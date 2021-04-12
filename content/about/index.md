@@ -1,7 +1,6 @@
 ---
 title: "About Us"
-date: 2021-04-06T00:31:47+01:00
-draft: true
+draft: false
 authors:
   - "Justin C. Louis"
   - "Philip R. Johnson"
@@ -14,8 +13,8 @@ category: "Meta"
 Hello, and welcome to Dataspace Publishing!
 
 As you saw on our landing page, we're a publishing company with a new attitude.
-As experienced web serial authors ourselves, [Justin]({{< ref "/authors/justin-c-louis" >}})
-and [Phil]({{< ref "/authors/philip-r-johnson" >}}) know that web fiction is a
+As experienced web serial authors ourselves, [Justin]({{< ref "/authors/justin-c.-louis" >}})
+and [Phil]({{< ref "/authors/philip-r.-johnson" >}}) know that web fiction is a
 growing and powerful genre, free from the constraints of conventional
 publishing. Web authors are free to explore ideas, themes and concepts with no
 hand on the wheel but their own, and we believe that part of the medium's
