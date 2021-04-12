@@ -1,7 +1,6 @@
 {{ define "main" }}
 <div class="container">
   <h1 class="text-center">{{ .Title | markdownify }}</h1>
-  <p>BASEOF</p>
   {{ .Content }}
   {{ range .Pages }}
     <div class="row mt-2">

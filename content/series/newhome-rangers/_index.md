@@ -1,6 +1,6 @@
 ---
-title: "The Newhome Rangers"
-draft: true
+title: "Newhome Rangers"
+draft: false
 ---
 
 PLACEHOLDER for the Newhome Rangers

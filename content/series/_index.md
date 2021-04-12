@@ -1,6 +1,6 @@
 ---
 title: "Our Series"
-draft: true
+draft: false
 ---
 
 PLACEHOLDER
