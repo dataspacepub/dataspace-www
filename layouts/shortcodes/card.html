@@ -22,6 +22,8 @@
       {{- if isset .Params "title" -}}
         <h5 class="card-title mb-0">{{ .Get "title" | markdownify}}</h5>
       {{- end -}}
+      <!-- TODO: https://markheath.net/post/css-comma-separated-list -->
+      <!-- probably this is tricky because instead of isset we should use range .Params.author -->
       {{- if isset .Params "authors" -}}
       {{ $authors := split (.Get "authors") "," }}
         <small class="authors">
