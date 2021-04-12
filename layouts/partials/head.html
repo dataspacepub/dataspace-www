@@ -1,26 +1,45 @@
+<!-- generate page title in a slightly more intelligent manner -->
 {{- if .Title -}}
   <title>{{ .Title }} - {{ .Site.Params.Brand }}</title>
 {{- else -}}
   <title>{{ .Site.Params.Brand }}</title>
 {{- end -}}
 
+<!-- styling and scripting partials -->
+{{ partial "style.html" . }}
+{{ partial "js.html" . }}
+
+<!-- advanced metadata -->
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
   {{- template "_internal/schema.html" . -}}
   {{- template "_internal/opengraph.html" . -}}
   {{- template "_internal/twitter_cards.html" . -}}
-{{- end -}}
-
-{{ partial "style.html" . }}
-{{ partial "js.html" . }}
-
-{{- range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s"/>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{- end -}}
-
-{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
   {{- template "_internal/google_analytics_async.html" . -}}
 {{- end -}}
 
-<link rel="icon" href="/img/icon/32x32.png" sizes="32x32"/>
-<link rel="icon" href="/img/icon/192x192.png" sizes="192x192"/>
-<link rel="apple-touch-icon" href="/img/icon/180x180.png"/>
+<!-- Apple-specific icon data -->
+<link rel="mask-icon" type="image/svg+xml" href="/img/icons/safari-pinned-tab.svg" color="#c51f30">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Dataspace Publishing">
+
+<!-- Android-specific icon data -->
+<link rel="manifest" type="application/json" href="/img/icons/site.webmanifest">
+<meta name="application-name" content="Dataspace Publishing">
+
+<!-- Microsoft-specific icon data -->
+<link rel="shortcut icon" type="image/x-icon" href="/img/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b91d47">
+<meta name="msapplication-TileImage" type="image/png" content="/img/icons/mstile-144x144.png">
+<meta name="msapplication-config" type="application/xml" content="/img/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- common icon data -->
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="194x194" href="/img/icons/favicon-194x194.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+
+<!-- syndication formats -->
+{{- range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{- end -}}
